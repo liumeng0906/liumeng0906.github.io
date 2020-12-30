@@ -77,6 +77,26 @@
   </entry>
   
   <entry>
+    <title>express</title>
+    <link href="http://example.com/2018/08/30/express/"/>
+    <id>http://example.com/2018/08/30/express/</id>
+    <published>2018-08-30T13:57:46.000Z</published>
+    <updated>2020-12-30T11:58:53.011Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简单使用express"><a href="#简单使用express" class="headerlink" title="简单使用express"></a>简单使用express</h1><p>首先安装 npm i express 、body-parser (post请求需要用到)</p><p>1.分别引用：import express from ‘express’;(如果没有引用bable,可以用require()引用)</p><p>import baodyParser from ‘body-parser’;</p><p>import fs from ‘fs’</p><p>import path from ‘path’</p><ol start="2"><li><p>const app=express() //创建一个express应用</p></li><li><p>const post=3000 端口号</p></li><li><p>用一下body-parser :app.use(bodyParser.json())</p></li></ol><p>app.use(bodyParser.urlencoded({extended:false}))</p><p>下面就可以使用 get post 进行请求了</p><p>app.post(‘/post’,(req,res)=&gt;{</p><p>　　</p><p>})</p><p>app.get(‘/gett’,(req,res)=&gt;{</p><p>　　</p><p>})</p><p>app.listen(post,()=&gt;{//监听端口号</p><p> 　　console.log(post)</p><p>})</p><p> 题外：1.关于express中间件的简单概述：在use(),get(),post()等方法里面是都可以使用中间件的。写法：app.user((req,res,next)=&gt;{</p><p>　　console.log(‘继续往下走’)</p><p>　　next()//如果不写next它是不会继续执行下面代码的</p><p>　　由此可简单说一个例子：就是有了这个中间件我们可以把一些公共逻辑放在use()方法中来执行，如果可行就next()继续往下走，否则停止本次请求。因为use()方法不管什么请求都会走进来！我们可以在这里进行账号密码的校验，因为不论登录还是注册都是要校验的，所以不可能登录和注册的接口都要写一遍校验。这个时候我们可以把校验这段逻辑放在use()方法中，如果校验通过就可以继续请求，否则直接停止。所以有了它就可以减少代码冗余问题。</p><p>})</p><p>　　2. express 重定向：使用 express.get(‘*’,(req,res)=&gt;{//就是当所有的请求都找不到时，给它重定向到一个专门的404页面。第一个参数是 *（通配符 所有），后面依然是回调函数</p><p>　　express.redirect(‘404.网页’)//用redirect方法做重定向</p><p>})</p><p>　　3. 请求对象req的方法：</p><p>　　　　req.body :获取post请求体的数据</p><p>　　　　req.query获取get请求的数据</p><p>　　　　req.originnalUrl 获取原始url地址、当需要处理路径的时候可以还可以用req.baseUrl，req.path  这三个方法是可以操作url的。</p><p>　　　　req.get(‘Content-type’)用来获取请求头</p><p>　　4. 响应对象res的方法：</p><p>　　　　res.set(‘key’,value)设置响应头  key:响应头的字段名称  。 value:值。</p><p>　　　　res.send()发送数据</p><p>　　　　res.senfFile()发送文件</p><p>　　　　res.redirect()重新定向 参数是文件的地址</p><p>　　　　res.download()下载</p><p>　　　　res.jsonp()以jsonp的方式返回数据</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;简单使用express&quot;&gt;&lt;a href=&quot;#简单使用express&quot; class=&quot;headerlink&quot; title=&quot;简单使用express&quot;&gt;&lt;/a&gt;简单使用express&lt;/h1&gt;&lt;p&gt;首先安装 npm i express 、body-parser (p</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>手写Promise</title>
     <link href="http://example.com/2018/05/25/%E6%89%8B%E5%86%99Promise/"/>
     <id>http://example.com/2018/05/25/%E6%89%8B%E5%86%99Promise/</id>
@@ -152,6 +172,46 @@
       
     <summary type="html">&lt;h1 id=&quot;var的变量提升&quot;&gt;&lt;a href=&quot;#var的变量提升&quot; class=&quot;headerlink&quot; title=&quot;var的变量提升&quot;&gt;&lt;/a&gt;var的变量提升&lt;/h1&gt;&lt;p&gt;es3/es5&lt;br&gt;1.变量提升：当栈内存（作用域）形成，JS代码自上而下执行之前，浏览器</summary>
       
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>嘛是跨域？</title>
+    <link href="http://example.com/2018/03/02/%E8%B7%A8%E5%9F%9F/"/>
+    <id>http://example.com/2018/03/02/%E8%B7%A8%E5%9F%9F/</id>
+    <published>2018-03-02T12:00:36.000Z</published>
+    <updated>2020-12-30T12:03:58.776Z</updated>
+    
+    <content type="html"><![CDATA[<p>资源所在的服务器地址和资源内发起请求的目标服务器地址不同！（两个服务器是不同的）</p><p>　　这里就要说一下浏览器的同源策略问题（服务器之间是没有同源策略的），如果两个URL的协议/主机(域名，IP地址)/端口（默认是80），都相同的话就是同源。如有一个不一样就会发生跨域问题，就是非同源。注意：同源策略是指针对AJXS请求而言，如果不是Ajxs即便非同源也是能请求的。如果用ajxs发起的请求地址和后端地址不同就会跨域</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;资源所在的服务器地址和资源内发起请求的目标服务器地址不同！（两个服务器是不同的）&lt;/p&gt;
+&lt;p&gt;　　这里就要说一下浏览器的同源策略问题（服务器之间是没有同源策略的），如果两个URL的协议/主机(域名，IP地址)/端口（默认是80），都相同的话就是同源。如有一个不一样就会发生</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>居中总结</title>
+    <link href="http://example.com/2017/06/10/%E5%B1%85%E4%B8%AD%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2017/06/10/%E5%B1%85%E4%B8%AD%E6%80%BB%E7%BB%93/</id>
+    <published>2017-06-10T11:55:00.000Z</published>
+    <updated>2020-12-30T11:55:35.913Z</updated>
+    
+    <content type="html"><![CDATA[<p>剧中总结！<br>水平居中</p><p>绝对定位+left+margin-left</p><p>.first{<br>    position: absolute;<br>    left: 50%;<br>    margin-left: -50px;//也就是1/2width<br>}</p><a id="more"></a><p>☠️必须得知道物体的宽高</p><p>2.绝对定位+left+transform</p><p>.second{<br>    position: absolute;<br>    left:50%;<br>    -webkit-transform: translate(-50%);<br>    -moz-transform: translate(-50%);<br>    -ms-transform: translate(-50%);<br>    -o-transform: translate(-50%);<br>    transform: translate(-50%);<br>}<br>😍transform的妙用，translate位移是针对自身的，所以可以不知道自身的宽度，是上面的升级版。</p><p>3.绝对定位+margin+左右</p><p>.third{<br>     margin:auto;<br>     position: absolute;<br>     left:0;<br>     right:0;<br> }<br>😍margin的妙用，如果设置左右为0，那么水平居中，如果设置上下左右都为0，那么就在整个页面居中（也就是水平也居中垂直也居中），换言之，如果值设置上下为0，那么垂直方向居中。</p><p>4.flex布局</p><p>.box{<br>  display:flex;<br>  justify-content:center;<br>}<br>😍很简洁的样子，给父元素设置两行就能做到水平居中了</p><p>相对定位+margin</p><p>.fouth{<br>    position:relative;<br>    margin:x auto x;//x代表随意的数值<br>}<br>😍好简洁</p><p>5.text-align</p><p>.box{<br>    text-align:center;<br>}<br>😍text-align属性只对行内元素有效，比如图片、文字、span等，当然也能让它对div奏效，把块级元素设为行内元素就行了。这个属性是设置在父盒子上面的。一般用来设置图片和文字居中比较多。</p><p>垂直居中</p><p>1.line-height</p><p>.box{<br>  line-height:50px;<br>}<br>😍设置行高，子元素会垂直居中，不论是行内还是块级子元素都有效。 ☠️只对单行文字有效。</p><p>2.多行文字垂直居中</p><p>//第一种<br>.box{<br>  display:table;<br>  height:200px;<br>}<br>.child{<br>  display:table-sell;<br>  vertical-aligh:middle;<br>}<br>//第二种<br>.box{<br>  display:table-sell;<br>  height:200px;<br>  vertical-align:middle;<br>}<br>.child{<br>  display:inline-block;<br>}<br>👉vertical-align是用来指定行内元素和表格单元格（table-sell）元素的垂直对齐方式</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;剧中总结！&lt;br&gt;水平居中&lt;/p&gt;
+&lt;p&gt;绝对定位+left+margin-left&lt;/p&gt;
+&lt;p&gt;.first{&lt;br&gt;    position: absolute;&lt;br&gt;    left: 50%;&lt;br&gt;    margin-left: -50px;//也就是1/2width&lt;br&gt;}&lt;/p&gt;</summary>
     
     
     
