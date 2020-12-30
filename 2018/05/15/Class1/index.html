@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Class的基本语法 | Hexo</title>
+  <meta name="description" content="class的基本语法:一.类的由来JS中生成实力对象的传统方法是通过构造函数，下面请看一个例子 123456789function Point(x,y)&amp;#123;    this.x&#x3D;x    this.y&#x3D;y&amp;#125;Point.prototype.toString&#x3D;function ()&amp;#123;    return &#39;(&#39;+this.x+&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Class的基本语法">
+<meta property="og:url" content="http://example.com/2018/05/15/Class1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="class的基本语法:一.类的由来JS中生成实力对象的传统方法是通过构造函数，下面请看一个例子 123456789function Point(x,y)&amp;#123;    this.x&#x3D;x    this.y&#x3D;y&amp;#125;Point.prototype.toString&#x3D;function ()&amp;#123;    return &#39;(&#39;+this.x+&amp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-05-15T14:02:45.000Z">
+<meta property="article:modified_time" content="2020-12-29T06:52:30.506Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2018/05/15/Class1/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">昵称</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/12/29/Class2/" class="title">Class的继承</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-29T06:53:04.000Z" itemprop="datePublished">2020-12-29</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/12/26/Hook/" class="title">hook中的useState、useEffect</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-26T01:02:04.000Z" itemprop="datePublished">2020-12-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/12/25/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-25T01:36:20.562Z" itemprop="datePublished">2020-12-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2018/05/25/%E6%89%8B%E5%86%99Promise/" class="title">手写Promise</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-05-25T14:10:50.000Z" itemprop="datePublished">2018-05-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2018/05/15/Class1/" class="title">Class的基本语法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-05-15T14:02:45.000Z" itemprop="datePublished">2018-05-15</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Class1" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Class的基本语法
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/05/15/Class1/" class="article-date">
+	  <time datetime="2018-05-15T14:02:45.000Z" itemprop="datePublished">2018-05-15</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/05/15/Class1/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>class的基本语法:<br>一.类的由来<br>JS中生成实力对象的传统方法是通过构造函数，下面请看一个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Point(x,y)&#123;</span><br><span class="line">    this.x&#x3D;x</span><br><span class="line">    this.y&#x3D;y</span><br><span class="line">&#125;</span><br><span class="line">Point.prototype.toString&#x3D;function ()&#123;</span><br><span class="line">    return &#39;(&#39;+this.x+&#39;,&#39;+this.y+&#39;)&#39;</span><br><span class="line">&#125;</span><br><span class="line">var p &#x3D; new Point(1,2)</span><br><span class="line">console.log(p)</span><br></pre></td></tr></table></figure>
+<p>上面这种写法跟传统的面向对象语言（比如 C++ 和 Java）差异很大，很容易让新学习这门语言的程序员感到困惑。</p>
+<p>ES6 提供了更接近传统语言的写法，引入了 Class（类）这个概念，作为对象的模板。通过class关键字，可以定义类。</p>
+<p>基本上，ES6 的class可以看作只是一个语法糖，它的绝大部分功能，ES5 都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。上面的代码用 ES6 的class改写，就是下面这样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Point&#123;</span><br><span class="line">    constructor(x,y)&#123;</span><br><span class="line">        this.x&#x3D;x</span><br><span class="line">        this.y&#x3D;y</span><br><span class="line">    &#125;</span><br><span class="line">    toString()&#123;</span><br><span class="line">            return &#39;(&#39;+this.x+&#39;,&#39;+this.y+&#39;)&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let p &#x3D;new Point(1,2)</span><br><span class="line">console.log(p)</span><br></pre></td></tr></table></figure>
+<p>这个是定义了一个类，有一个constructor()方法，就是构造方法而this关键字就是实力的对象。这种新的Class写法，最开始ES5的构造函数Point是一样的。</p>
+<p>Point类除了构造方法，还定义了一个toString方法。注意，这里定义toString()方法，是不用加上function关键字的。直接定义就可以，并且不用逗号隔开，加了会报错。</p>
+<p>ES6的类，完全可以看做构造函数的另一种写法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Point&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">console.log(typeof Point)&#x2F;&#x2F;function 说明类的数据类型是函数，类本身就指向构造函数</span><br><span class="line">console.log(Point&#x3D;&#x3D;&#x3D;Point.prototype.constructor)&#x2F;&#x2F;true</span><br><span class="line">使用的时候也是直接对类使用new 命令，跟构造函数的用法完全一致。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Bar&#123;</span><br><span class="line">    todo()&#123;</span><br><span class="line">        console.log(&#39;类&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">const b &#x3D; new Bar()</span><br><span class="line">b.todo()&#x2F;&#x2F;&#39;类&#39;</span><br><span class="line">构造函数的prototype属性，在ES6的 类上面继续存在。事实上，类的所有方法都定义在类的 prototype属性上面</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">        constructor() &#123;</span><br><span class="line">            &#x2F;&#x2F; ...</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        toString() &#123;</span><br><span class="line">            &#x2F;&#x2F; ...</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        toValue() &#123;</span><br><span class="line">            &#x2F;&#x2F; ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 等同于</span><br><span class="line"></span><br><span class="line">        Point.prototype &#x3D; &#123;</span><br><span class="line">        constructor() &#123;&#125;,</span><br><span class="line">        toString() &#123;&#125;,</span><br><span class="line">        toValue() &#123;&#125;,</span><br><span class="line">        &#125;;</span><br><span class="line">        上面代码中，所有的方法，其实都是定义在Point.prototype上面</span><br><span class="line">        因此，在类的实例上面调用方法，其实就是调用原型上的方法</span><br></pre></td></tr></table></figure>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class B&#123;&#125;</span><br><span class="line">const b &#x3D; new B()</span><br><span class="line">console.log(b.constructor &#x3D;&#x3D;&#x3D; B.prototype.constructor)&#x2F;&#x2F;true</span><br><span class="line">b是B类的实例，b的constructor()方法就是B类原型的constructor()方法</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">由于类的方法都定义在prototype对象上面，所以类的新方法可以添加在prototype对象上面。</span><br><span class="line">Object.assign()方法可以很方便地一次向类天机多个方法。比如：</span><br><span class="line">class Point&#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Object.assign(Point.prototype,&#123;</span><br><span class="line">    toString()&#123;&#125;,</span><br><span class="line">    toValue()&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">prototype对象的constructor()属性，直接指向&#39;类&#39;的本身，这与ES5的行为是一致的。</span><br><span class="line">Point.prototype.constructor&#x3D;&#x3D;&#x3D;Point &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+另外，类的内部所有定义的方法，都是不可枚举的(non-enumerabal)
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Point&#123;</span><br><span class="line">    constructor(x,y)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    toString()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(Object.keys(Point.prototype))&#x2F;&#x2F;[]</span><br><span class="line">console.log(Object.getOwnPropertyNames(Point.prototype))&#x2F;&#x2F;[&#39;constructor&#39;,&#39;toString&#39;]</span><br><span class="line">这里，toString()方法是Point类 内部定义的方法，它是不可枚举的。这一点与ES5是不一样的</span><br></pre></td></tr></table></figure></code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    var Point &#x3D; function (x,y)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">Point.prototype.toString &#x3D; function ()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">console.log(Object.keys(Point.prototype))&#x2F;&#x2F;[&#39;toString&#39;]</span><br><span class="line">console.log(Object.getOwnPropertyNames(Point.prototype))&#x2F;&#x2F;[&#39;constructor&#39;,&#39;toString&#39;]</span><br><span class="line">这是ES5 的写法，toString()方法就是可枚举的。</span><br></pre></td></tr></table></figure>
+<p>Constructor()方法<br>    constructor()方法是类的默认方法，是通过new 命令生成对象实例时，自动调用该方法。一个类必须有constructor()<br>    方法，如果没有显示定义，一个空德constructor()方法也会被默认添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Ponit&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;等同于</span><br><span class="line">    class Point&#123;</span><br><span class="line">        constructor()&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">这里，定义了一个空的类Point,JS引擎会自动给他添加一个空的constructor()方法。</span><br><span class="line">constructor()方法默认返回实例对象(即this),完全可以指定返回另一个对象</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Foo&#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        return Object.create(null)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(new Foo() instanceof Foo)&#x2F;&#x2F;false</span><br><span class="line">这里，constructor()函数返回一个全新的对象，结果导致实例对象不是Foo类的实例。</span><br><span class="line">类必须使用new调用，否则会报错，这是它跟普通构造函数的一个主要区别，后者不用new也可以执行</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Foo&#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        return Object.create(null)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Foo()&#x2F;&#x2F;Class constructor Foo cannot be invoked without &#39;new&#39;</span><br></pre></td></tr></table></figure>
+<p>类的实例！<br>    生成类的实例的写法，与ES5 完全一样，也是使用 new命令。如果没有用 new，像函数那样调用class,将会报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Point&#123;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"> var point &#x3D; Point(2,3)&#x2F;&#x2F;报错</span><br><span class="line"> var point &#x3D; new Point(2,3)&#x2F;&#x2F;正确</span><br></pre></td></tr></table></figure>
+<p>与ES5 一样，实例的属性除非显示定义在其本身(即定义在this上)，否则都是定义在原型上(即定义在class上)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Point&#123;</span><br><span class="line">    constructor(x,y)&#123;</span><br><span class="line">        this.x&#x3D;x</span><br><span class="line">        this.y&#x3D;y</span><br><span class="line">    &#125;</span><br><span class="line">    toString()&#123;</span><br><span class="line">        return &#39;(&#39;+this.x+&#39;,&#39;+this.y+&#39;)&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var point &#x3D; new Point(2,3)</span><br><span class="line">console.log(point.toString(2,3))&#x2F;&#x2F;(2,3)</span><br><span class="line">console.log(point.hasOwnProperty(&#39;x&#39;))&#x2F;&#x2F;true</span><br><span class="line">console.log(point.hasOwnProperty(&#39;y&#39;))&#x2F;&#x2F;true</span><br><span class="line">console.log(point.hasOwnProperty(&#39;toString&#39;))&#x2F;&#x2F;false</span><br><span class="line">console.log(point.__proto__.hasOwnProperty(&#39;toString&#39;))&#x2F;&#x2F;true</span><br><span class="line">上面代码中，x和y都是实例对象point自身属性(因为定义在this变量上)，所以hasOwnProperty()方法返回true，而toString()</span><br><span class="line">是原型对象的属性(因为定义在Point类上)，所以hasOwnProperty()方法返回false,这些都与ES5的行为保持一致</span><br></pre></td></tr></table></figure>
+<p>与ES5一样，类的所有实例共享一个原型对象！！！！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var p1 &#x3D; new Point(2,3)</span><br><span class="line">var p2 &#x3D; new Point(1,3)</span><br><span class="line">p1.__proto&#x3D;&#x3D;&#x3D;p2.__proto__&#x2F;&#x2F;true</span><br><span class="line">上面代码中。p1和p2都是Point的实例，他们的原型都是Point.prototype,所以__proto__属性是相等的。</span><br><span class="line">这也意味着，可以通过实例的__proto__属性为&#39;类&#39;添加方法</span><br></pre></td></tr></table></figure>
+<p><strong>proto</strong> 并不是语言本身的特性，这是各大厂商具体实现时添加的私有属性，虽然目前很多现代浏览器的 JS 引擎中都提供了这个私有属性，但依旧不建议在生产中使用该属性，避免对环境产生依赖。生产环境中，我们可以使用 Object.getPrototypeOf 方法来获取实例对象的原型，然后再来为原型添加方法/属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var p1 &#x3D; new Point(2,3);</span><br><span class="line">var p2 &#x3D; new Point(3,2);</span><br><span class="line"></span><br><span class="line">p1.__proto__.printName &#x3D; function () &#123; return &#39;Oops&#39; &#125;;</span><br><span class="line"></span><br><span class="line">p1.printName() &#x2F;&#x2F; &quot;Oops&quot;</span><br><span class="line">p2.printName() &#x2F;&#x2F; &quot;Oops&quot;</span><br><span class="line"></span><br><span class="line">var p3 &#x3D; new Point(4,2);</span><br><span class="line">p3.printName() &#x2F;&#x2F; &quot;Oops&quot;</span><br><span class="line">上面代码在p1的原型上添加了一个printName()方法，由于p1的原型就是p2的原型，因此p2也可以调用这个方法。而且，此后新建的实例p3也可以调用这个方法。这意味着，使用实例的__proto__属性改写原型，必须相当谨慎，不推荐使用，因为这会改变“类”的原始定义，影响到所有实例。</span><br></pre></td></tr></table></figure>
+<p>取值函(getter)和存值函数(setter)<br>与ES5一样，在’类’的内部可以使用get和set关键字，对某个属性设置存值函数和取值函数，拦截该属性的存取行为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class MyClass&#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    get prop()&#123;</span><br><span class="line">        return &#39;getter&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    set prop(value)&#123;</span><br><span class="line">        console.log(&#39;setter:&#39;+value)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let inst &#x3D; new MyClass()</span><br><span class="line">console.log(inst.props&#x3D;123)&#x2F;&#x2F;&#39;setter:123&#39;</span><br><span class="line">console.log(inst.prop)&#x2F;&#x2F;&#39;getter&#39;</span><br><span class="line">上面，prop属性有对应的存值函数和取值函数，因此赋值和读取行为都被自定义了</span><br></pre></td></tr></table></figure>
+<p>存值函数和取值函数式设置在属性的 Desscriptor对象上的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class CustomHTMLElement &#123;</span><br><span class="line">    constructor(element)&#123;</span><br><span class="line">        this.element &#x3D; element</span><br><span class="line">    &#125;</span><br><span class="line">    get html()&#123;</span><br><span class="line">        return thi.element.innerHTML</span><br><span class="line">    &#125;</span><br><span class="line">    set html(value)&#123;</span><br><span class="line">        this.element.innerHTML&#x3D;value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var descriptor &#x3D; Object.getOwnPropertyDescriptor(</span><br><span class="line">    CustomHTMLElement.proptotype,&#39;html&#39;</span><br><span class="line">)</span><br><span class="line">&#39;get&#39; in descriptor&#x2F;&#x2F;true</span><br><span class="line">&#39;set&#39; in descriptor&#x2F;&#x2F;true</span><br><span class="line">上面代码中，存值函数和取值函数是定义在html属性的描述对象上面，这与ES5完全一致。</span><br></pre></td></tr></table></figure>
+<p>属性表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let nethodName &#x3D; &#39;getArea&#39;</span><br><span class="line">class Square &#123;</span><br><span class="line">    constructor(length)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    [methodName]()&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">代码中，Square类的方法名getArea,是从表达式得到的。</span><br></pre></td></tr></table></figure>
+<p>Class 表达式<br>与函数一样，类也可以使用表达式的形式定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> const MyClass &#x3D; class Me&#123;</span><br><span class="line">    getClassName()&#123;</span><br><span class="line">        return Me.name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">这里使用表达式定义了一个类，类的名字是Me,但是Me只在Class的内部可用，指代当前类。在Class外部，这个类只能用myClass引用</span><br><span class="line">let inst &#x3D; new MyClass()</span><br><span class="line">console.log(inst.getClassName())&#x2F;&#x2F;Me</span><br><span class="line">Me.name&#x2F;&#x2F;Me is not defined</span><br><span class="line">这里就可以说明，Me只在Class内部有定义</span><br><span class="line"></span><br><span class="line">如果类的内部没有用到的话，可以省略Me,也就是可以下面的形式</span><br><span class="line">const MyClass &#x3D; class &#123;&#x2F;&#x2F;....&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">采用Class 表达式，可以写出立即执行的Class</span><br><span class="line">let person &#x3D; new class&#123;</span><br><span class="line">    constructor(name)&#123;</span><br><span class="line">        this.name &#x3D; name</span><br><span class="line">    &#125;</span><br><span class="line">    sayName()&#123;</span><br><span class="line">        console.log(this.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;(&#39;李华&#39;)</span><br><span class="line">person.sayName()</span><br><span class="line">这里 person是一个立即执行的类的实例</span><br></pre></td></tr></table></figure>
+<p>注意点<br>（1）严格模式</p>
+<p>类和模块的内部，默认就是严格模式，所以不需要使用use strict指定运行模式。只要你的代码写在类或模块之中，就只有严格模式可用。考虑到未来所有的代码，其实都是运行在模块之中，所以 ES6 实际上把整个语言升级到了严格模式。<br>（2）不存在提升<br>累不存在变量提升，这一点与ES5完全不同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new Foo()</span><br><span class="line">class Foo&#123;&#125;</span><br><span class="line">上面代码中，Foo类使用在前，定义在后，这样会报错，因为ES6不会把类的声明提升到代码头部。这种规定的原因与下文要提到的继承者有关，必须保证子类在父类之后定义。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    let Foo &#x3D; class&#123;&#125;</span><br><span class="line">    class Bar extends Foo&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">上面的代码不会报错，因为Bar继承Foo的时候，Foo已经有定义了。但是，如果存在class的提升，上面代码就会报错，因为class会被提升到代码头部，而let命令是不提升的，所以导致Bar继承Foo的时候，Foo还没有定义。</span><br></pre></td></tr></table></figure>
+<p>（3）name 属性<br>由于本质上，ES6 的类只是 ES5 的构造函数的一层包装，所以函数的许多特性都被Class继承，包括name属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Point&#123;&#125;</span><br><span class="line">Point.name&#x2F;&#x2F;&#39;Point&#39;</span><br><span class="line">name属性总是返回紧跟在class关键字后面的类。</span><br></pre></td></tr></table></figure>
+<p>（4）Generator 方法<br>如果某个方法之前加上星号（*），就表示该方法是一个 Generator 函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Foo&#123;</span><br><span class="line">    constructor(...args)&#123;</span><br><span class="line">        this.args &#x3D; args</span><br><span class="line">    &#125;</span><br><span class="line">    *[Symbol.iterator]()&#123;</span><br><span class="line">        for(let arg of this.args)&#123;</span><br><span class="line">            yield arg</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">for(let x of new Foo(&#39;hello&#39;,&#39;world&#39;))&#123;</span><br><span class="line">    console.log(x)</span><br><span class="line">&#125;</span><br><span class="line">上面的代码中，Foo类的Symbol.interator方法前有一个星号，表示该方法是一个Generator 函数。Symbol.interator方法返回一个Foo类的默认遍历器，for...of循环会自动调用这个遍历器。</span><br></pre></td></tr></table></figure>
+<p>5）this 的指向<br>类的方法内部如果含有this，它默认指向类的实例。但是，必须非常小心，一旦单独使用该方法，很可能报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Logger&#123;</span><br><span class="line">    printName(name&#x3D;&#39;there&#39;)&#123;</span><br><span class="line">        this.print(&#96;Hello $&#123;name&#125;&#96;)</span><br><span class="line">    &#125;</span><br><span class="line">    print(text)&#123;</span><br><span class="line">        console.log(text)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">const logger &#x3D; new Logger()</span><br><span class="line">const &#123; printName&#125; &#x3D; logger</span><br><span class="line">console.log(printName())&#x2F;&#x2F;Cannot read property &#39;print&#39; of undefined</span><br><span class="line">上面代码中，printName方法中的this，默认指向Logger类的实例，但是。如果将这个方法提取出来单独使用，this会指向该方法运行是所在的环境(由于class内部是严格模式，所以this实际指向的是undefined),从而导致找不到print方法而报错。</span><br><span class="line">一个比较简单的解决方法是，在构造函数中绑定this。这样就不会找不到print方法了。</span><br><span class="line">class Logger &#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    this.printName &#x3D; this.printName.bind(this);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; ...</span><br><span class="line">&#125;</span><br><span class="line">另一种解决方法是使用箭头函数。</span><br><span class="line">class Obj&#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        this.getThis &#x3D; () &#x3D;&gt; this</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">const myObj &#x3D; new Obj()</span><br><span class="line">myObj.getThis() &#x3D;&#x3D;&#x3D; myObj&#x2F;&#x2F;true</span><br><span class="line">箭头函数内部的this总是指向定义时所在的对象。上面代码中，箭头函数位于构造函数内部，它的定义生效的时候，实在构造函数执行的时候，这时，箭头函数所在的运行环境，肯定是实例对象，所以this会总是指向实例对象</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">还有一种解决方法是使用Proxy，获取方法的时候，自动绑定this。</span><br><span class="line">function selfish (target) &#123;</span><br><span class="line">  const cache &#x3D; new WeakMap();</span><br><span class="line">  const handler &#x3D; &#123;</span><br><span class="line">    get (target, key) &#123;</span><br><span class="line">      const value &#x3D; Reflect.get(target, key);</span><br><span class="line">      if (typeof value !&#x3D;&#x3D; &#39;function&#39;) &#123;</span><br><span class="line">        return value;</span><br><span class="line">      &#125;</span><br><span class="line">      if (!cache.has(value)) &#123;</span><br><span class="line">        cache.set(value, value.bind(target));</span><br><span class="line">      &#125;</span><br><span class="line">      return cache.get(value);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  const proxy &#x3D; new Proxy(target, handler);</span><br><span class="line">  return proxy;</span><br><span class="line">&#125;</span><br><span class="line">const logger &#x3D; selfish(new Logger());</span><br></pre></td></tr></table></figure>
+<p>2.静态方法<br>类相当于实例的原型。所有在类中定义的方法，都会被实例继承，如果在一个方法前，加上static关键字，就表示该方法不会被实例继承，而是直接通过类来调用，这就称为‘静态方法’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Foo&#123;</span><br><span class="line">    static classMethod()&#123;</span><br><span class="line">        return &#39;hello&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(Foo.classMethod())&#x2F;&#x2F;&#39;hello&#39;</span><br><span class="line">var foo &#x3D; new Foo()</span><br><span class="line">console.log(foo.classMethod())&#x2F;&#x2F;foo.classMethod is not a function</span><br><span class="line">上面代码中，Foo类的classMethod方法前有static关键字，表明该方法是一个静态方法，可以直接在Foo类上调用</span><br><span class="line">(Foo.classMethod()),而不是在Foo类的实例上调用。如果在实例上调用静态方法，会抛出一个错误，表示不存在该方法</span><br></pre></td></tr></table></figure>
+<p>注意：如果静态方法包含this关键字，这个this指的是类，而不是实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Foo&#123;</span><br><span class="line">    static bar()&#123;</span><br><span class="line">        this.baz()</span><br><span class="line">    &#125;</span><br><span class="line">    static baz()&#123;</span><br><span class="line">        console.log(&#39;hello&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    baz()&#123;</span><br><span class="line">        console.log(&#39;world&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    console.log(Foo.bar())&#x2F;&#x2F;hello</span><br><span class="line"></span><br><span class="line">上面代码中，静态方法bar调用了this.baz，这里的this指的是Foo的类，而不是Foo的实例，等同于调用Foo.baz.另外，从这个例子还可以看出，静态方法可以与非静态方法重名</span><br></pre></td></tr></table></figure>
+<p>父类的静态方法，可以被子类继承</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Foo&#123;</span><br><span class="line">    static classMethod()&#123;</span><br><span class="line">        return &#39;hello&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Bar extends Foo&#123;&#125;</span><br><span class="line">console.log(Bar.classMethod())&#x2F;&#x2F;hello</span><br><span class="line">这里，父类Foo有一个静态方法，子类Bar可以调用这个方法</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">静态方法也是可以从super对象上调用的</span><br><span class="line">class Foo&#123;</span><br><span class="line">    static classMethod()&#123;</span><br><span class="line">        return &#39;hello&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Bar extends Foo&#123;</span><br><span class="line">    static classMethod()&#123;</span><br><span class="line">        return super.classMethod()+&#39;,too&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(Bar.classMethod())&#x2F;&#x2F;hello,too</span><br></pre></td></tr></table></figure>
+<p>3.实例属性的新写法<br>实例属性除了定义在constructor()方法里面的this上面，也可以定义在类的最顶层。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class IncreasingCounter&#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        this._count &#x3D; 0</span><br><span class="line">    &#125;</span><br><span class="line">    get value()&#123;</span><br><span class="line">        console.log(&#39;Getting the current value&#39;)</span><br><span class="line">        return this._count</span><br><span class="line">    &#125;</span><br><span class="line">    increment()&#123;</span><br><span class="line">        this._count++</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">代码中，实例属性this._count定义在constructor()方法里面，另一种写法是，这个属性也可以定义在类的最顶层，其他都不变</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class IncreasingCounter&#123;</span><br><span class="line">    _count &#x3D; 0</span><br><span class="line">    get value()&#123;</span><br><span class="line">        console.log(&#39;Getter the current value&#39;)</span><br><span class="line">        return this._count</span><br><span class="line">    &#125;</span><br><span class="line">    increment()&#123;</span><br><span class="line">        this._count++</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">代码中，实例属性_count与取值函数value()和increment()方法，处于同一层级。这时，不需要在实例属性前面加上this。</span><br><span class="line">这种新写法的好处是，所有实例对象自身的属性都定义在类的头部，看上去比较整齐，一眼就能看出这个类有哪些实例属性</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class foo&#123;</span><br><span class="line">    bar &#x3D; &#39;hello&#39;</span><br><span class="line">    baz &#x3D; &#39;world&#39;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">代码中，一眼就能看出，foo类有两个实例属性，一目了然。另外，写起来也比较简洁</span><br></pre></td></tr></table></figure>
+<p>4.静态属性<br>静态属性指的是Class 本身的属性，即Class.porpName,而不是定义在实例对象(this)上的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Foo&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">Foo.prop &#x3D; 1</span><br><span class="line">Foo.prop &#x2F;&#x2F;1</span><br><span class="line">上面的写法为Foo类定义了一个静态属性prop</span><br></pre></td></tr></table></figure>
+<p>目前，只有这种写法可行，因为ES6明确规定，Class内部只有静态方法，没有静态属性。现在有一个提案提供了类的静态属性。写法是在实例属性的前面，加上static关键字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class MyClass&#123;</span><br><span class="line">    static myStaticProp &#x3D; 42</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        console.log(MyClass.myStaticProp)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">new MyClass()</span><br><span class="line">这个新写法大大方便了静态属性的表达</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Foo&#123;&#x2F;&#x2F;老写法</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">Foo.prop &#x3D;1</span><br><span class="line">class Foo&#123;&#x2F;&#x2F;新写法</span><br><span class="line">    static prop &#x3D;1</span><br><span class="line">&#125;</span><br><span class="line">上面代码中，老写法的静态属性定义在类的外部，整个类生成以后，再生成静态属性。这样让人很容易忽略这个静态属性，也不符合相关代码应该放在一起的代码组织原则。另外，新写法是显式声明（declarative）,而不是赋值处理，语义更好。</span><br></pre></td></tr></table></figure>
+<p>5.私有方法和私有属性<br>现在的解决方案<br>私有方法和私有属性，是只能在类的内部访问的方法和属性，外部不能访问，这是常见需求，有利于代码的封装，但ES6不提供，只能通过变通方法模拟实现。<br>一种做法是在命名上加以区别。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Widget&#123;</span><br><span class="line">    &#x2F;&#x2F;公有方法</span><br><span class="line">    foo(baz)&#123;</span><br><span class="line">        this._bar(baz)</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;私有属性</span><br><span class="line">    _bar(baz)&#123;</span><br><span class="line">        return this.snaf &#x3D; baz</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">上面代码中，_bar()方法前面的下划线，表示这是一个只限于内部使用的私有方法。但是这种命名是不保险的。在类的外部，还是可以调用到这个方法</span><br></pre></td></tr></table></figure>
+<p>另一种方法就是索性将私有方法移出类，因为类内部的所有方法都是对外可见的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Widget &#123;</span><br><span class="line">  foo (baz) &#123;</span><br><span class="line">    bar.call(this, baz);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function bar(baz) &#123;</span><br><span class="line">  return this.snaf &#x3D; baz;</span><br><span class="line">&#125;</span><br><span class="line">上面代码中，foo是公开方法，内部调用了bar.call(this, baz)。这使得bar()实际上成为了当前类的私有方法。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2018/05/15/Class1/" title="Class的基本语法" target="_blank" rel="external">http://example.com/2018/05/15/Class1/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">昵称</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/05/25/%E6%89%8B%E5%86%99Promise/" title="手写Promise"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
