@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://example.com/2020/12/31/Proxy/</loc>
-    <lastmod>2021-01-25</lastmod>
+    <loc>http://example.com/2018/11/28/history/</loc>
+    <lastmod>2021-01-28</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com/2018/10/11/Proxy/</loc>
+    <lastmod>2021-01-28</lastmod>
   </url>
   <url>
     <loc>http://example.com/2019/03/12/%E7%AE%80%E6%98%93%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</loc>
