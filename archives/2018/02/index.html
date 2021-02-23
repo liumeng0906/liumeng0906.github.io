@@ -17,20 +17,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>居中总结 | Hexo</title>
-  <meta name="description" content="剧中总结！水平居中 绝对定位+left+margin-left .first{    position: absolute;    left: 50%;    margin-left: -50px;&#x2F;&#x2F;也就是1&#x2F;2width}">
-<meta property="og:type" content="article">
-<meta property="og:title" content="居中总结">
-<meta property="og:url" content="http://example.com/2017/06/10/%E5%B1%85%E4%B8%AD%E6%80%BB%E7%BB%93/index.html">
+  <title>Archive: 2018/2 | Hexo</title>
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/archives/2018/02/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="剧中总结！水平居中 绝对定位+left+margin-left .first{    position: absolute;    left: 50%;    margin-left: -50px;&#x2F;&#x2F;也就是1&#x2F;2width}">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2017-06-10T11:55:00.000Z">
-<meta property="article:modified_time" content="2020-12-30T11:55:35.913Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/2017/06/10/%E5%B1%85%E4%B8%AD%E6%80%BB%E7%BB%93/index.html">
+  <link rel="canonical" href="http://example.com/archives/2018/02/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -325,181 +321,48 @@
   
   
 <main class="main" role="main">
-  <div class="content">
-  <article id="post-居中总结" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  	<article class="content article article-archives article-type-list" itemscope="">
+	    <header class="article-header">
+	      <h1 itemprop="title">Archive: 2018/2</h1>
+	      <p class="text-muted">Total 1 articles</p>
+	    </header>
+	    <div class="article-body">
+	      
+  
+  
     
-    <div class="article-header">
+    
       
-        
-  
-    <h1 class="article-title" itemprop="name">
-      居中总结
-    </h1>
-  
-
       
-      <div class="article-meta">
-        <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2017/06/10/%E5%B1%85%E4%B8%AD%E6%80%BB%E7%BB%93/" class="article-date">
-	  <time datetime="2017-06-10T11:55:00.000Z" itemprop="datePublished">2017-06-10</time>
-	</a>
-</span>
-        
-        
-
-        
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2017/06/10/%E5%B1%85%E4%B8%AD%E6%80%BB%E7%BB%93/#comments" class="article-comment-link">Comments</a></span>
-        
-      </div>
-    </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
-      
-        <p>剧中总结！<br>水平居中</p>
-<p>绝对定位+left+margin-left</p>
-<p>.first{<br>    position: absolute;<br>    left: 50%;<br>    margin-left: -50px;//也就是1/2width<br>}</p>
-<a id="more"></a>
-
-<p>☠️必须得知道物体的宽高</p>
-<p>2.绝对定位+left+transform</p>
-<p>.second{<br>    position: absolute;<br>    left:50%;<br>    -webkit-transform: translate(-50%);<br>    -moz-transform: translate(-50%);<br>    -ms-transform: translate(-50%);<br>    -o-transform: translate(-50%);<br>    transform: translate(-50%);<br>}<br>😍transform的妙用，translate位移是针对自身的，所以可以不知道自身的宽度，是上面的升级版。</p>
-<p>3.绝对定位+margin+左右</p>
-<p>.third{<br>     margin:auto;<br>     position: absolute;<br>     left:0;<br>     right:0;<br> }<br>😍margin的妙用，如果设置左右为0，那么水平居中，如果设置上下左右都为0，那么就在整个页面居中（也就是水平也居中垂直也居中），换言之，如果值设置上下为0，那么垂直方向居中。</p>
-<p>4.flex布局</p>
-<p>.box{<br>  display:flex;<br>  justify-content:center;<br>}<br>😍很简洁的样子，给父元素设置两行就能做到水平居中了</p>
-<p>相对定位+margin</p>
-<p>.fouth{<br>    position:relative;<br>    margin:x auto x;//x代表随意的数值<br>}<br>😍好简洁</p>
-<p>5.text-align</p>
-<p>.box{<br>    text-align:center;<br>}<br>😍text-align属性只对行内元素有效，比如图片、文字、span等，当然也能让它对div奏效，把块级元素设为行内元素就行了。这个属性是设置在父盒子上面的。一般用来设置图片和文字居中比较多。</p>
-<p>垂直居中</p>
-<p>1.line-height</p>
-<p>.box{<br>  line-height:50px;<br>}<br>😍设置行高，子元素会垂直居中，不论是行内还是块级子元素都有效。 ☠️只对单行文字有效。</p>
-<p>2.多行文字垂直居中</p>
-<p>//第一种<br>.box{<br>  display:table;<br>  height:200px;<br>}<br>.child{<br>  display:table-sell;<br>  vertical-aligh:middle;<br>}<br>//第二种<br>.box{<br>  display:table-sell;<br>  height:200px;<br>  vertical-align:middle;<br>}<br>.child{<br>  display:inline-block;<br>}<br>👉vertical-align是用来指定行内元素和表格单元格（table-sell）元素的垂直对齐方式</p>
-
-      
-    </div>
-    <div class="article-footer">
-      <blockquote class="mt-2x">
-  <ul class="post-copyright list-unstyled">
-    
-    <li class="post-copyright-link hidden-xs">
-      <strong>本文链接：</strong>
-      <a href="http://example.com/2017/06/10/%E5%B1%85%E4%B8%AD%E6%80%BB%E7%BB%93/" title="居中总结" target="_blank" rel="external">http://example.com/2017/06/10/%E5%B1%85%E4%B8%AD%E6%80%BB%E7%BB%93/</a>
-    </li>
-    
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-</blockquote>
-
-
-<div class="panel panel-default panel-badger">
-  <div class="panel-body">
-    <figure class="media">
-      <div class="media-left">
-        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
-        </a>
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">昵称</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
-        <div>个人简介。</div>
-      </div>
-    </figure>
-  </div>
-</div>
-
-
-    </div>
-  </article>
-  
-    
-  <section id="comments">
-  	
-      <div id="vcomments"></div>
-    
-  </section>
-
-
-  
-</div>
-
-  <nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
-  
-  <ul class="pager pull-left">
-    
-    <li class="prev">
-      <a href="/2017/10/22/JS%E9%9D%A2%E8%AF%95%E9%A2%98/" title="JS面试题"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
-    </li>
-    
-    
-    
-  </ul>
-  
-  
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
-  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
-    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
-  </div> -->
-  
-  
-  <div class="bar-right">
-    
-    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
-    
-  </div>
-  </div>
-</nav>
-  
-<!-- Modal -->
-<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content donate">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <div class="modal-body">
-        <div class="donate-box">
-          <div class="donate-head">
-            <p>Maybe you could buy me a cup of coffee.</p>
-          </div>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
-              <div class="donate-payimg">
-                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
-              </div>
-              <p class="text-muted mv">Scan this qrcode</p>
-              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
-              <div class="donate-payimg">
-                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
-              </div>
-              <p class="text-muted mv">Scan this qrcode</p>
-              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
-            </div>
-          </div>
-          <div class="donate-footer">
-            <ul class="nav nav-tabs nav-justified" role="tablist">
-              <li role="presentation" class="active">
-                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
-              </li>
-              <li role="presentation" class="">
-                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
-              </li>
-            </ul>
-          </div>
+      <section class="panel panel-default b-no">
+        <div class="panel-heading" role="tab">
+          <h3 class="panel-title">
+            <a data-toggle="collapse" href="#collapse2018" aria-expanded="true">
+              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
+              2018
+            </a>
+            <!-- <a href="/archives/2018" class="archive-year">2018</a> -->
+          </h3>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+        <div id="collapse2018" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2018">
+        <div class="panel-body">
+          <div class="collection">
+    
+    
+<a href="/2018/02/22/vue%E3%80%81react/" class="collection-item" target="_blank" itemprop="url">
+  <time datetime="2018-02-22T07:17:05.000Z" itemprop="datePublished">2018-02-22</time>
+  <span>&nbsp;&nbsp;&nbsp;</span> vue、react面试题
+</a>
 
 
+  
+  
+    </div></div></div></section>
+  
 
+	    </div>
+  	</article>
+  	 	
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -560,37 +423,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-
-   
-
-
-
-
-   
-    
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine"></script>
-  <script type="text/javascript">
-  var GUEST = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link';
-  meta = meta.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#vcomments',
-    verify: false,
-    notify: false,
-    appId: '',
-    appKey: '',
-    placeholder: 'Just go go',
-    avatar: 'mm',
-    meta: meta,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-  </script>
-
-     
 
 
 
