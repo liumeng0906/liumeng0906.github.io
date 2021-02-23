@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>vue、react面试题 | Hexo</title>
+  <meta name="description" content="vue一.vue的特点是什么？1.遵循MVVM模式数据驱动视图2.双向绑定3.摒弃了原始的dom操作3.可以轻松引入Vue插件或其他第三方库开发项目 二.vue的原理是什么？vue2.0采用数据劫持结合发布-订阅模式,通过 Object.defineproperty 来劫持各个属性的 setter,getter,在数据变动时发布消息给订阅者,触发响应的监听回调 三.computed 和 watch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue、react面试题">
+<meta property="og:url" content="http://example.com/2021/02/22/vue%E3%80%81react/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="vue一.vue的特点是什么？1.遵循MVVM模式数据驱动视图2.双向绑定3.摒弃了原始的dom操作3.可以轻松引入Vue插件或其他第三方库开发项目 二.vue的原理是什么？vue2.0采用数据劫持结合发布-订阅模式,通过 Object.defineproperty 来劫持各个属性的 setter,getter,在数据变动时发布消息给订阅者,触发响应的监听回调 三.computed 和 watch">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-22T07:17:05.000Z">
+<meta property="article:modified_time" content="2021-02-23T01:16:34.163Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2021/02/22/vue%E3%80%81react/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">昵称</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/06/09/js%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" class="title">js严格模式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-06-09T10:47:35.000Z" itemprop="datePublished">2021-06-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/02/22/vue%E3%80%81react/" class="title">vue、react面试题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-02-22T07:17:05.000Z" itemprop="datePublished">2021-02-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/12/26/Hook/" class="title">hook中的API</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-26T01:02:04.000Z" itemprop="datePublished">2020-12-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/12/25/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-25T01:36:20.562Z" itemprop="datePublished">2020-12-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2019/03/12/%E7%AE%80%E6%98%93%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" class="title">简易防抖节流</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-03-12T10:28:25.000Z" itemprop="datePublished">2019-03-12</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-vue、react" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue、react面试题
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/02/22/vue%E3%80%81react/" class="article-date">
+	  <time datetime="2021-02-22T07:17:05.000Z" itemprop="datePublished">2021-02-22</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/02/22/vue%E3%80%81react/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h3><h4 id="一-vue的特点是什么？"><a href="#一-vue的特点是什么？" class="headerlink" title="一.vue的特点是什么？"></a>一.vue的特点是什么？</h4><p>1.遵循MVVM模式数据驱动视图<br>2.双向绑定<br>3.摒弃了原始的dom操作<br>3.可以轻松引入Vue插件或其他第三方库开发项目</p>
+<h4 id="二-vue的原理是什么？"><a href="#二-vue的原理是什么？" class="headerlink" title="二.vue的原理是什么？"></a>二.vue的原理是什么？</h4><p>vue2.0采用数据劫持结合发布-订阅模式,通过 Object.defineproperty 来劫持各个属性的 setter,getter,在数据变动时发布消息给订阅者,触发响应的监听回调</p>
+<h4 id="三-computed-和-watch-有什么区别及运用场景"><a href="#三-computed-和-watch-有什么区别及运用场景" class="headerlink" title="三.computed 和 watch 有什么区别及运用场景?"></a>三.computed 和 watch 有什么区别及运用场景?</h4><p>computed 计算属性 : 依赖其它属性值,并且 computed 的值有缓存,只有它依赖的属性值发生改变,下一次获取 computed 的值时才会重新计算 computed 的值。</p>
+<p>watch 侦听器 : 更多的是「观察」的作用,<strong>无缓存性</strong>,类似于某些数据的监听回调,每当监听的数据变化时都会执行回调进行后续操作。</p>
+<p>运用场景：</p>
+<p>当我们需要进行数值计算,并且依赖于其它数据时,应该使用 computed,因为可以利用 computed 的缓存特性,避免每次获取值时,都要重新计算。</p>
+<p>当我们需要在数据变化时执行异步或开销较大的操作时,应该使用 watch,使用 watch 选项允许我们执行异步操作 ( 访问一个 API ),限制我们执行该操作的频率,并在我们得到最终结果前,设置中间状态。这些都是计算属性无法做到的。</p>
+<h4 id="四-Vue-中的-key-到底有什么用？"><a href="#四-Vue-中的-key-到底有什么用？" class="headerlink" title="四.Vue 中的 key 到底有什么用？"></a>四.Vue 中的 key 到底有什么用？</h4><p>key 的特殊属性主要用在 Vue的虚拟DOM算法，在新旧nodes对比时辨识VNodes。如果不使用key，Vue会使用一种最大限度减少动态元素并且尽可能的尝试修复/再利用相同类型元素的算法。使用key，它会基于key的变化重新排列元素顺序，并且会移除key不存在的元素。</p>
+<h4 id="五-什么是MVVM？"><a href="#五-什么是MVVM？" class="headerlink" title="五.什么是MVVM？"></a>五.什么是MVVM？</h4><p>MVVM是Model-View-ViewModel缩写，也就是把MVC中的Controller演变成ViewModel。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据。</p>
+<h4 id="六-mvvm和mvc区别？它和其它框架（jquery）的区别是什么？哪些场景适合？"><a href="#六-mvvm和mvc区别？它和其它框架（jquery）的区别是什么？哪些场景适合？" class="headerlink" title="六.mvvm和mvc区别？它和其它框架（jquery）的区别是什么？哪些场景适合？"></a>六.mvvm和mvc区别？它和其它框架（jquery）的区别是什么？哪些场景适合？</h4><p>mvc和mvvm其实区别并不大。都是一种设计思想。主要就是mvc中Controller演变成mvvm中的viewModel。mvvm主要解决了mvc中大量的DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。</p>
+<p>区别：vue数据驱动，通过数据来显示视图层而不是节点操作。<br>场景：数据操作比较多的场景，更加便捷</p>
+<h4 id="七-vuex是什么？怎么使用？哪种功能场景使用它？"><a href="#七-vuex是什么？怎么使用？哪种功能场景使用它？" class="headerlink" title="七.vuex是什么？怎么使用？哪种功能场景使用它？"></a>七.vuex是什么？怎么使用？哪种功能场景使用它？</h4><p>vuex是管理vue状态的一个库<br>任何组件都可以和store通信<br>它是单一数据源</p>
+<h4 id="八-vuex有哪几种属性？"><a href="#八-vuex有哪几种属性？" class="headerlink" title="八.vuex有哪几种属性？"></a>八.vuex有哪几种属性？</h4><p>有五种，分别是 State、 Getter、Mutation 、Action、 Module</p>
+<p>·  vuex的State特性<br>A、Vuex就是一个仓库，仓库里面放了很多对象。其中state就是数据源存放地，对应于一般Vue对象里面的data<br>B、state里面存放的数据是响应式的，Vue组件从store中读取数据，若是store中的数据发生改变，依赖这个数据的组件也会发生更新<br>C、它通过mapState把全局的 state 和 getters 映射到当前组件的 computed 计算属性中</p>
+<p>· vuex的Getter特性<br>A、getters 可以对State进行计算操作，它就是Store的计算属性<br>B、 虽然在组件内也可以做计算属性，但是getters 可以在多组件之间复用<br>C、 如果一个状态只在一个组件内使用，是可以不用getters</p>
+<p>·  vuex的Mutation特性<br>Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不是直接变更状态；Action 可以包含任意异步操作。</p>
+<h4 id="九-v-show和v-if指令的共同点和不同点"><a href="#九-v-show和v-if指令的共同点和不同点" class="headerlink" title="九. v-show和v-if指令的共同点和不同点"></a>九. v-show和v-if指令的共同点和不同点</h4><p>v-show指令是通过修改元素的display的CSS属性让其显示或者隐藏<br>v-if指令是直接销毁和重建DOM达到让元素显示和隐藏的效果</p>
+<h4 id="十-vue-router有哪几种导航钩子？"><a href="#十-vue-router有哪几种导航钩子？" class="headerlink" title="十.vue-router有哪几种导航钩子？"></a>十.vue-router有哪几种导航钩子？</h4><p>三种，一种是全局导航钩子：router.beforeEach(to,from,next)，作用：跳转前进行判断拦截。<br>第二种：组件内的钩子；<br>第三种：单独路由独享组件</p>
+<h4 id="十一-什么是vue生命周期"><a href="#十一-什么是vue生命周期" class="headerlink" title="十一.什么是vue生命周期"></a>十一.什么是vue生命周期</h4><p>Vue 实例从创建到销毁的过程，就是生命周期。也就是从开始创建、初始化数据、编译模板、挂载Dom→渲染、更新→渲染、卸载等一系列过程，我们称这是 Vue 的生命周期。</p>
+<h4 id="十二-vue生命周期的作用是什么"><a href="#十二-vue生命周期的作用是什么" class="headerlink" title="十二.vue生命周期的作用是什么"></a>十二.vue生命周期的作用是什么</h4><p>它的生命周期中有多个事件钩子，让我们在控制整个Vue实例的过程时更容易形成好的逻辑。</p>
+<h4 id="十三-第一次页面加载会触发哪几个钩子"><a href="#十三-第一次页面加载会触发哪几个钩子" class="headerlink" title="十三.第一次页面加载会触发哪几个钩子"></a>十三.第一次页面加载会触发哪几个钩子</h4><p>第一次页面加载时会触发 beforeCreate, created, beforeMount, mounted 这几个钩子</p>
+<h4 id="十四-简单描述每个周期具体适合哪些场景"><a href="#十四-简单描述每个周期具体适合哪些场景" class="headerlink" title="十四.简单描述每个周期具体适合哪些场景"></a>十四.简单描述每个周期具体适合哪些场景</h4><p>生命周期钩子的一些使用方法：<br>beforecreate : 可以在这加个loading事件，在加载实例时触发<br>created : 初始化完成时的事件写在这里，如在这结束loading事件，异步请求也适宜在这里调用<br>mounted : 挂载元素，获取到DOM节点<br>updated : 如果对数据统一处理，在这里写上相应函数<br>beforeDestroy : 可以做一个确认停止事件的确认框<br>nextTick : 更新数据后立即操作dom</p>
+<h4 id="十五-为什么使用key？"><a href="#十五-为什么使用key？" class="headerlink" title="十五.为什么使用key？"></a>十五.为什么使用key？</h4><p>当有相同标签名的元素切换时，需要通过 key 特性设置唯一的值来标记以让 Vue 区分它们，否则 Vue 为了效率只会替换相同标签内部的内容。</p>
+<h4 id="十六-为什么避免-v-if-和-v-for-用在一起"><a href="#十六-为什么避免-v-if-和-v-for-用在一起" class="headerlink" title="十六.为什么避免 v-if 和 v-for 用在一起"></a>十六.为什么避免 v-if 和 v-for 用在一起</h4><p>当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级，这意味着 v-if 将分别重复运行于每个 v-for 循环中。通过v-if 移动到容器元素，不会再重复遍历列表中的每个值。取而代之的是，我们只检查它一次，且不会在 v-if 为否的时候运算 v-for。</p>
+<h4 id="十七-VNode是什么？虚拟-DOM是什么？"><a href="#十七-VNode是什么？虚拟-DOM是什么？" class="headerlink" title="十七.VNode是什么？虚拟 DOM是什么？"></a>十七.VNode是什么？虚拟 DOM是什么？</h4><p>Vue在 页面上渲染的节点，及其子节点称为“虚拟节点 (Virtual Node)”，简写为“VNode”。“虚拟 DOM”是由 Vue 组件树建立起来的整个 VNode 树的称呼。</p>
+<h4 id="十八-active-class是哪个组件的属性？嵌套路由怎么定义？"><a href="#十八-active-class是哪个组件的属性？嵌套路由怎么定义？" class="headerlink" title="十八.active-class是哪个组件的属性？嵌套路由怎么定义？"></a>十八.active-class是哪个组件的属性？嵌套路由怎么定义？</h4><p>vue-router模块的router-link组件。<br>嵌套路由顾名思义就是路由的多层嵌套。 一级路由里面使用children数组配置子路由，就是嵌套路由。</p>
+<h4 id="十九-怎么定义vue-router的动态路由？怎么获取传过来的动态参数？"><a href="#十九-怎么定义vue-router的动态路由？怎么获取传过来的动态参数？" class="headerlink" title="十九.怎么定义vue-router的动态路由？怎么获取传过来的动态参数？"></a>十九.怎么定义vue-router的动态路由？怎么获取传过来的动态参数？</h4><p>在router目录下的index.js文件中，对path属性加上/:id。  使用router对象的params.id</p>
+<h4 id="二十-请说出vue-cli项目中src目录每个文件夹和文件的用法？"><a href="#二十-请说出vue-cli项目中src目录每个文件夹和文件的用法？" class="headerlink" title="二十.请说出vue.cli项目中src目录每个文件夹和文件的用法？"></a>二十.请说出vue.cli项目中src目录每个文件夹和文件的用法？</h4><p>assets文件夹是放静态资源；components是放组件；router是定义路由相关的配置;view视图；app.vue是一个应用主组件；main.js是入口文件</p>
+<h4 id="二十一-指令v-el的作用是什么"><a href="#二十一-指令v-el的作用是什么" class="headerlink" title="二十一.指令v-el的作用是什么?"></a>二十一.指令v-el的作用是什么?</h4><p>提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标.可以是 CSS 选择器，也可以是一个 HTMLElement 实例</p>
+<h4 id="二十二-请列举出3个Vue中常用的生命周期钩子函数"><a href="#二十二-请列举出3个Vue中常用的生命周期钩子函数" class="headerlink" title="二十二.请列举出3个Vue中常用的生命周期钩子函数?"></a>二十二.请列举出3个Vue中常用的生命周期钩子函数?</h4><p>created: 实例已经创建完成之后调用,在这一步,实例已经完成数据观测, 属性和方法的运算, watch/event事件回调. 然而, 挂载阶段还没有开始, $el属性目前还不可见</p>
+<p>mounted: el被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。如果 root实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。</p>
+<p>activated::keep-alive组件激活时调用</p>
+<h4 id="二十三-怎样理解单向数据流"><a href="#二十三-怎样理解单向数据流" class="headerlink" title="二十三.怎样理解单向数据流"></a>二十三.怎样理解单向数据流</h4><p>这个概念出现在组件通信。父组件是通过 prop 把数据传递到子组件的，但是这个 prop 只能由父组件修改，子组件不能修改，否则会报错。子组件想修改时，只能通过 $emit 派发一个自定义事件，父组件接收到后，由父组件修改。</p>
+<h4 id="二十四-各个生命周期的作用"><a href="#二十四-各个生命周期的作用" class="headerlink" title="二十四.各个生命周期的作用"></a>二十四.各个生命周期的作用</h4><p>beforeCreate 组件实例被创建之初，组件的属性生效之前<br>created 组件实例已经完全出创建，属性也绑定，但是真实 DOM 没有生成，$el 还不可以用<br>beforeMount 在挂载开始之前被调用，相关的render函数首次被调用<br>mounted el 被新创建的 vm.$el 替换，并挂载实例上去调动该钩子<br>beforeUpdate 组件数据更新之前调用，发生在虚拟 DOM 打补丁之前<br>update 组件数据更新之后<br>activated keep-alive 专属，组件被激活时调用<br>deactivated keep-alive 专属，组件被销毁时调用<br>beforeDestory 组件销毁前调用<br>destroyed 组件销毁后调用<br>#Vue 的父组件和子</p>
+<h4 id="二十五-在哪个生命周期内调用异步请求？"><a href="#二十五-在哪个生命周期内调用异步请求？" class="headerlink" title="二十五.在哪个生命周期内调用异步请求？"></a>二十五.在哪个生命周期内调用异步请求？</h4><p>在 钩子函数 created 、beforeMount、mounted 中进行调用，因为在这三个钩子函数中，data 已经创建，可以将服务器点的数据返回进行赋值</p>
+<h4 id="二十六-在什么阶段才能访问操作-DOM"><a href="#二十六-在什么阶段才能访问操作-DOM" class="headerlink" title="二十六.在什么阶段才能访问操作 DOM"></a>二十六.在什么阶段才能访问操作 DOM</h4><p>在钩子函数 mounted 被调用前，Vue 已经将编译好的模板挂载到页面上，所以可以在 mounted 中访问到 DOM</p>
+<h4 id="二十七-Proxy-与-Object-defineProperty-优劣对比"><a href="#二十七-Proxy-与-Object-defineProperty-优劣对比" class="headerlink" title="二十七.Proxy 与 Object.defineProperty 优劣对比"></a>二十七.Proxy 与 Object.defineProperty 优劣对比</h4><p>Proxy 可以直接监听对象而非属性；<br>Proxy 可以直接监听数组的变化；<br>Proxy 有多达 13 种拦截方法,不限于 apply、ownKeys、deleteProperty、has 等等是 Object.defineProperty 不具备的；<br>Proxy 返回的是一个新对象,我们可以只操作新的对象达到目的,而 Object.defineProperty 只能遍历对象属性直接修改；<br>Proxy 作为新标准将受到浏览器厂商重点持续的性能优化，也就是传说中的新标准的性能红利</p>
+<h4 id="二十八-使你用过-Vuex-吗？"><a href="#二十八-使你用过-Vuex-吗？" class="headerlink" title="二十八.使你用过 Vuex 吗？"></a>二十八.使你用过 Vuex 吗？</h4><p>主要包含一下几种模块：<br>#State<br>定义了应用状态的数据结构，可以在这里设置默认的初始化状态。<br>#Getter<br>允许组件从 Store 中获取数据，mapGetters 辅助函数仅仅是将 store 中的 getter 映射到局部计算属性中。<br>#Mutation<br>是唯一更改 store 中状态的方法，且必须是同步函数。<br>#Action<br>用于提交 mutation，而不是直接变更状态，可以任何异步操作。<br>#Module<br>允许将单一的 Store 拆分为多个 store 且同时保持在单一的状态数中</p>
+<h4 id="二十九-使用过-Vue-SSR-吗？-说说-SSR"><a href="#二十九-使用过-Vue-SSR-吗？-说说-SSR" class="headerlink" title="二十九.使用过 Vue SSR 吗？ 说说 SSR"></a>二十九.使用过 Vue SSR 吗？ 说说 SSR</h4><p>SSR 将 Vue 在客户端将标签渲染成HTML 片段的工作放到了服务端完成，服务端形成的 HTML 片段直接返回给客户端这个过程，叫做服务端渲染</p>
+<h4 id="三十-计算属性和methods的区别？为什么要用计算属性而不用methods？"><a href="#三十-计算属性和methods的区别？为什么要用计算属性而不用methods？" class="headerlink" title="三十.计算属性和methods的区别？为什么要用计算属性而不用methods？"></a>三十.计算属性和methods的区别？为什么要用计算属性而不用methods？</h4><p>它两的执行结果是一样的。计算属性 是只有它的依赖发生变化的时候它会自动的进行计算求值，如果依赖没有发生变化，那么每次访问的时候计算属性都会立刻返回之前的执行结果，而事件函数需要手动调用，并且调用一次触发一次比较粗暴一点，每当重新触发渲染时，调用方法总是再次执行函数。</p>
+<h4 id="三十一-vue-router-的原理是什么？"><a href="#三十一-vue-router-的原理是什么？" class="headerlink" title="三十一.vue-router 的原理是什么？"></a>三十一.vue-router 的原理是什么？</h4><p>vue-router是什么：他可以让单页面应用拥有了多页面应用的效果，一个url对应一个页面。<br>它主要是通过h5新增的history和hash两种模式来实现的<br>hash —— 即地址栏 URL 中的 # 符号。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。每次hash值得变化，会触发hashchange这个时间，通过这个时间我就可以知道hash值发生了哪些变化。然后我们就可以监听hashchange来实现更新页面部分内容的操作。<br>history —— 利用了 HTML5 History Interface 中新增的 pushState() 和 replaceState() 方法。（需要特定浏览器支持）这两个方法应用于浏览器的历史记录栈，在当前已有的 back、forward、go 的基础之上，它们提供了对历史记录进行修改的功能。只是当它们执行修改时，虽然改变了当前的 URL，但浏览器不会立即向后端发送请求。<br>因此可以说，hash 模式和 history 模式都属于浏览器自身的特性，Vue-Router 只是利用了这两个特性（通过调用浏览器提供的接口）来实现前端路由.</p>
+<h4 id="三十二-插槽的作用："><a href="#三十二-插槽的作用：" class="headerlink" title="三十二.插槽的作用："></a>三十二.插槽的作用：</h4><p>为了让组件更加具有扩展性。抽取共性，保留不同为插槽，让其他组件可以传递自己想展示的标签到预留插槽。它包含具名插槽，匿名插槽、还有作用域插槽。</p>
+<h4 id="三十三-keep-alive的作用？"><a href="#三十三-keep-alive的作用？" class="headerlink" title="三十三.keep-alive的作用？"></a>三十三.keep-alive的作用？</h4><p>缓存组件的状态，在组件还原的时候能够把状态还原到组件上。然后它有3个属性，分别是：include(包括)、exclude(不包括)、max(可缓存的最大组件实例数量)<br>利用keep-alive组件把想要缓存的组件包一下，并且给被缓存的组件添加name属性，在include属性里面写上我们要缓存的组件name</p>
+<h4 id="三十四-vuex与全局对象的区别？"><a href="#三十四-vuex与全局对象的区别？" class="headerlink" title="三十四.vuex与全局对象的区别？"></a>三十四.vuex与全局对象的区别？</h4><p>Vuex的状态存储是响应式的。当Vue组件从store中读取状态的时候，若store中的状态发生变化，那么相应的组件也会得到高效更新。<br>不能直接改变store中的状态，改变store中的状态的唯一途径就是显示地提交(commit)mutation。这样使得我们可以方便地跟踪每一个状态的变化，从而让我们能够实现一些工具帮助我们更好地了解我们的应用。</p>
+<h4 id="三十五-为什么组件里的data是个函数？"><a href="#三十五-为什么组件里的data是个函数？" class="headerlink" title="三十五.为什么组件里的data是个函数？"></a>三十五.为什么组件里的data是个函数？</h4><p>一个组件被复用多次的话，也就会创建多个实例。本质上， 这些实例都是同一个构造函数<br>如果data是对象的话，对象属于引用类型，会影响到所有的实例<br>所以为了保证组件不同的实例之间data不冲突，data必须是个函数</p>
+<h4 id="三十六-vue2-x和vue3-x渲染器的diff算法有什么区别？"><a href="#三十六-vue2-x和vue3-x渲染器的diff算法有什么区别？" class="headerlink" title="三十六.vue2.x和vue3.x渲染器的diff算法有什么区别？"></a>三十六.vue2.x和vue3.x渲染器的diff算法有什么区别？</h4><p>Vue3.x借鉴了 ivi算法和 inferno算法<br>Vue2的核?Diff算法采?了双端?较的算法，同时从新旧children的两端开始进??较，借助key值找到可复?的节点，再进?相关操作<br>在创建VNode时就确定其类型，以及在mount/patch的过程中采?位运算来判断?个VNode的类型，在这个基础之上再配合核?的Diff算法，使得性能上较Vue2.x有了提升</p>
+<h4 id="三十七-那你知道Vue3-x响应式数据原理吗？"><a href="#三十七-那你知道Vue3-x响应式数据原理吗？" class="headerlink" title="三十七.那你知道Vue3.x响应式数据原理吗？"></a>三十七.那你知道Vue3.x响应式数据原理吗？</h4><p>Vue3.x改用Proxy替代Object.defineProperty。因为Proxy可以直接监听对象和数组的变化，并且有多达13种拦截方法。并且作为新标准将受到浏览器厂商重点持续的性能优化。<br>Proxy只会代理对象的第一层，那么Vue3又是怎样处理这个问题的呢？<br>答：判断当前Reflect.get的返回值是否为Object，如果是则再通过reactive方法做代理， 这样就实现了深度观测。<br>监测数组的时候可能触发多次get/set，那么如何防止触发多次呢？？<br>答：我们可以判断key是否为当前被代理对象target自身属性，也可以判断旧值与新值是否相等，只有满足以上两个条件之一时，才有可能执行trigger。</p>
+<h4 id="三十八-nextTick知道吗，实现原理是什么？"><a href="#三十八-nextTick知道吗，实现原理是什么？" class="headerlink" title="三十八.nextTick知道吗，实现原理是什么？"></a>三十八.nextTick知道吗，实现原理是什么？</h4><p>在下次 DOM 更新循环结束之后执行延迟回调。nextTick主要使用了宏任务和微任务。根据执行环境分别尝试采用<br>PromiseMutationObserversetImmediate如果以上都不行则采用setTimeout<br>定义了一个异步方法，多次调用nextTick会将方法存入队列中，通过这个异步方法清空当前队列。</p>
+<h4 id="三十九-说一下Vue的生命周期"><a href="#三十九-说一下Vue的生命周期" class="headerlink" title="三十九.说一下Vue的生命周期"></a>三十九.说一下Vue的生命周期</h4><p>beforeCreate是new Vue()之后触发的第一个钩子，在当前阶段data、methods、computed以及watch上的数据和方法都不能被访问。<br>created在实例创建完成后发生，当前阶段已经完成了数据观测，也就是可以使用数据，更改数据，在这里更改数据不会触发updated函数。可以做一些初始数据的获取，在当前阶段无法与Dom进行交互，如果非要想，可以通过vm.$nextTick来访问Dom。<br>beforeMount发生在挂载之前，在这之前template模板已导入渲染函数编译。而当前阶段虚拟Dom已经创建完成，即将开始渲染。在此时也可以对数据进行更改，不会触发updated。<br>mounted在挂载完成后发生，在当前阶段，真实的Dom挂载完毕，数据完成双向绑定，可以访问到Dom节点，使用$refs属性对Dom进行操作。<br>beforeUpdate发生在更新之前，也就是响应式数据发生更新，虚拟dom重新渲染之前被触发，你可以在当前阶段进行更改数据，不会造成重渲染。<br>updated发生在更新完成之后，当前阶段组件Dom已完成更新。要注意的是避免在此期间更改数据，因为这可能会导致无限循环的更新。<br>beforeDestroy发生在实例销毁之前，在当前阶段实例完全可以被使用，我们可以在这时进行善后收尾工作，比如清除计时器。<br>destroyed发生在实例销毁之后，这个时候只剩下了dom空壳。组件已被拆解，数据绑定被卸除，监听被移出，子实例也统统被销毁。</p>
+<h4 id="四十-说一下v-model的原理"><a href="#四十-说一下v-model的原理" class="headerlink" title="四十.说一下v-model的原理?"></a>四十.说一下v-model的原理?</h4><p>v-model本质就是一个语法糖，可以看成是value + input方法的语法糖。 可以通过model属性的prop和event属性来进行自定义。原生的v-model，会根据标签的不同生成不同的事件和属性。</p>
+<h4 id="四十一-Vue事件绑定原理说一下"><a href="#四十一-Vue事件绑定原理说一下" class="headerlink" title="四十一.Vue事件绑定原理说一下?"></a>四十一.Vue事件绑定原理说一下?</h4><p>原生事件绑定是通过addEventListener绑定给真实元素的，组件事件绑定是通过Vue自定义的$on实现的。</p>
+<h4 id="四十一-Vue中组件生命周期调用顺序说一下"><a href="#四十一-Vue中组件生命周期调用顺序说一下" class="headerlink" title="四十一.Vue中组件生命周期调用顺序说一下?"></a>四十一.Vue中组件生命周期调用顺序说一下?</h4><p>组件的调用顺序都是先父后子,渲染完成的顺序是先子后父。<br>组件的销毁操作是先父后子，销毁完成的顺序是先子后父。<br>加载渲染过程<br>父beforeCreate-&gt;父created-&gt;父beforeMount-&gt;子beforeCreate-&gt;子created-&gt;子beforeMount- &gt;子mounted-&gt;父mounted<br>子组件更新过程<br>父beforeUpdate-&gt;子beforeUpdate-&gt;子updated-&gt;父updated<br>父组件更新过程<br>父 beforeUpdate -&gt; 父 updated<br>销毁过程<br>父beforeDestroy-&gt;子beforeDestroy-&gt;子destroyed-&gt;父destroyed</p>
+<h4 id="四十二-Vue2-x组件通信有哪些方式？"><a href="#四十二-Vue2-x组件通信有哪些方式？" class="headerlink" title="四十二.Vue2.x组件通信有哪些方式？"></a>四十二.Vue2.x组件通信有哪些方式？</h4><p>父子组件通信<br>父-&gt;子props，子-&gt;父 $on、$emit<br>获取父子组件实例 $parent、$children<br>Ref 获取实例的方式调用组件的属性或者方法<br>Provide、inject 官方不推荐使用，但是写组件库时很常用<br>兄弟组件通信<br>Event Bus 实现跨组件通信 Vue.prototype.$bus = new Vue<br>Vuex<br>跨级组件通信<br>Vuex<br>$attrs、$listeners<br>Provide、inject</p>
+<h4 id="四十三-你都做过哪些Vue的性能优化？"><a href="#四十三-你都做过哪些Vue的性能优化？" class="headerlink" title="四十三.你都做过哪些Vue的性能优化？"></a>四十三.你都做过哪些Vue的性能优化？</h4><p>编码阶段</p>
+<p>尽量减少data中的数据，data中的数据都会增加getter和setter，会收集对应的watcherv-if和v-for不能连用如果需要使用v-for给每项元素绑定事件时使用事件代理SPA 页面采用keep-alive缓存组件在更多的情况下，使用v-if替代v-showkey保证唯一使用路由懒加载、异步组件防抖、节流第三方模块按需导入长列表滚动到可视区域动态加载图片懒加载<br>SEO优化</p>
+<p>预渲染服务端渲染SSR<br>打包优化</p>
+<p>压缩代码Tree Shaking/Scope Hoisting使用cdn加载第三方模块多线程打包happypacksplitChunks抽离公共文件sourceMap优化<br>用户体验</p>
+<p>骨架屏 PWA</p>
+<h4 id="四十四-vue中的修饰符"><a href="#四十四-vue中的修饰符" class="headerlink" title="四十四.vue中的修饰符?"></a>四十四.vue中的修饰符?</h4><p>.stop 阻止事件冒泡<br>.prevent 清除默认行为<br>.once 只触发一次回调<br>.lazy 取代input 监听change 事件<br>.number 输入字符串转为有效的数字<br>.trim 输入首尾空格过滤</p>
+<h4 id="四十五-vue中的指令有哪些？"><a href="#四十五-vue中的指令有哪些？" class="headerlink" title="四十五.vue中的指令有哪些？"></a>四十五.vue中的指令有哪些？</h4><p>v-if、v-else、v-for、v-bind、v-model、v-onv-text</p>
+<h4 id="四十六-插槽之间是怎么传值的？"><a href="#四十六-插槽之间是怎么传值的？" class="headerlink" title="四十六.插槽之间是怎么传值的？"></a>四十六.插槽之间是怎么传值的？</h4><p>可以用作用域插槽进行传值。子组件的slot标签中动态绑定属性，父组件中给template标签绑定(v-slot)值，子组件抛出来的接口，可以通过这个值访问到子组件的数据</p>
+<h4 id="四十七-vue中的内置组件有哪些？"><a href="#四十七-vue中的内置组件有哪些？" class="headerlink" title="四十七.vue中的内置组件有哪些？"></a>四十七.vue中的内置组件有哪些？</h4><p>component、<br>transition、<br>transition-group、<br>keep-alive、<br>slot</p>
+<h4 id="四十八-vue中的transfrom组件是什么？"><a href="#四十八-vue中的transfrom组件是什么？" class="headerlink" title="四十八.vue中的transfrom组件是什么？"></a>四十八.vue中的transfrom组件是什么？</h4><p>使用transfrom可以完成任何元素进入/离开的过渡效果。<br>它的用法是：首先在这个组件内设置一个那么属性，然后再css中用v-enter、v-enter-active、v-leave、v-leave-active<br>来实现整体的效果。</p>
+<h4 id="四十九-computed-是什么？实现原理？"><a href="#四十九-computed-是什么？实现原理？" class="headerlink" title="四十九.computed 是什么？实现原理？"></a>四十九.computed 是什么？实现原理？</h4><p>是：计算属性。基于当前的数据进行简单的加工返回新的数据，当计算属性所依赖的数据发生变化时，它会自动进行计算。<br>写起来像函数，本质是属性。</p>
+<p>对大量计算有优化效果。仅仅在依赖的数据发生变化时，才执行。<br>computed 内部实现了一个惰性的 watcher，在实例化的时候不会去求值，其内部通过 dirty 属性标记计算属性是否需要重新求值。当 computed 依赖的任意状态发生改变，都会通知这个惰性的 watcher，让它把 dirty 属性设置为 true，所以，当再次读取这个计算属性的时候，就会重新去求值。<br>惰性的watcher 计算属性在创建时不会去求值的，是在使用时去求值。</p>
+<p>computed 本质是一个惰性求值的观察者。</p>
+<p>computed 内部实现了一个惰性的 watcher,也就是 computed watcher,computed watcher 不会立刻求值,同时持有一个 dep 实例。</p>
+<p>其内部通过 this.dirty 属性标记计算属性是否需要重新求值。</p>
+<p>当 computed 的依赖状态发生改变时,就会通知这个惰性的 watcher,</p>
+<p>computed watcher 通过 this.dep.subs.length 判断有没有订阅者,</p>
+<p>有的话,会重新计算,然后对比新旧值,如果变化了,会重新渲染。 (<strong>Vue 想确保不仅仅是计算属性依赖的值发生变化，而是当计算属性最终计算的值发生变化时才会触发渲染 watcher 重新渲染，本质上是一种优化。</strong>)<br>没有的话,仅仅把 this.dirty = true。 (<strong>当计算属性依赖于其他数据时，属性并不会立即重新计算，只有之后其他地方需要读取属性的时候，它才会真正计算，即具备 lazy（懒计算）特性。</strong>)</p>
+<h5 id="五十-为什么在-Vue3-0-采用了-Proxy-抛弃了-Object-defineProperty？"><a href="#五十-为什么在-Vue3-0-采用了-Proxy-抛弃了-Object-defineProperty？" class="headerlink" title="五十.为什么在 Vue3.0 采用了 Proxy,抛弃了 Object.defineProperty？"></a>五十.为什么在 Vue3.0 采用了 Proxy,抛弃了 Object.defineProperty？</h5><p>Object.defineProperty 本身有一定的监控到数组下标变化的能力,但是在 Vue 中,从性能/体验的性价比考虑,尤大大就弃用了这个特性(<a href="https://link.zhihu.com/?target=https://segmentfault.com/a/1190000015783546">Vue 为什么不能检测数组变动</a> )。为了解决这个问题,经过 vue 内部处理后可以使用以下几种方法来监听数组</p>
+<h3 id="react面试题"><a href="#react面试题" class="headerlink" title="react面试题"></a>react面试题</h3><h4 id="什么是react？"><a href="#什么是react？" class="headerlink" title="什么是react？"></a>什么是react？</h4><p>它是facebook在2011年发布的一个框架<br>react和vue大体是差不多一个开发框架，支出组件并且可以引入第三方UI库<br>相对vue来说它比较更原生一点，vue相对来说更容易上手。</p>
+<h4 id="react有什么特点？"><a href="#react有什么特点？" class="headerlink" title="react有什么特点？"></a>react有什么特点？</h4><p>它使用虚拟dom而不是真正的dom<br>它可以用服务器端渲染<br>它遵循单向数据流或者数据绑定</p>
+<h4 id="vue和react的区别？"><a href="#vue和react的区别？" class="headerlink" title="vue和react的区别？"></a>vue和react的区别？</h4><p>react严格上针对的是mvc模式的view层，vue则是mvvm模式。<br>操作dom的方式不同，vue使用的是指令操作dom，react是通过js进行操作。<br>数据绑定不同，vue实现的是双向绑定，react的数据流动是单向的。<br>react中state是不能直接改变的，需要使用setState改变。vue中的state不是必须的，数据主要是由data属性在vue对象中管理的。</p>
+<h4 id="列出React的一些主要优点？"><a href="#列出React的一些主要优点？" class="headerlink" title="列出React的一些主要优点？"></a>列出React的一些主要优点？</h4><p>它提高了应用的性能<br>可以方便地在客户端和服务器端使用<br>由于 JSX，代码的可读性很好<br>React 很容易与 Meteor，Angular 等其他框架集成<br>使用React，编写UI测试用例变得非常容易</p>
+<h4 id="React有哪些限制？"><a href="#React有哪些限制？" class="headerlink" title="React有哪些限制？"></a>React有哪些限制？</h4><p>React 只是一个库，而不是一个完整的框架<br>它的库非常庞大，需要时间来理解<br>新手程序员可能很难理解<br>编码变得复杂，因为它使用内联模板和 JSX</p>
+<h4 id="什么是虚拟DOM？"><a href="#什么是虚拟DOM？" class="headerlink" title="什么是虚拟DOM？"></a>什么是虚拟DOM？</h4><p>虚拟 DOM (VDOM)是真实 DOM 在内存中的表示。UI 的表示形式保存在内存中，并与实际的 DOM 同步。这是一个发生在渲染函数被调用和元素在屏幕上显示之间的步骤，整个过程被称为调和。</p>
+<h4 id="什么是JSX？"><a href="#什么是JSX？" class="headerlink" title="什么是JSX？"></a>什么是JSX？</h4><p>JSX 是J avaScript XML 的简写。是 React 使用的一种文件，它利用 JavaScript 的表现力和类似 HTML 的模板语法。这使得 HTML 文件非常容易理解。此文件能使应用非常可靠，并能够提高其性能。下面是JSX的一个例子：</p>
+<h4 id="为什么不直接更新-state-呢"><a href="#为什么不直接更新-state-呢" class="headerlink" title="为什么不直接更新 state 呢 ?"></a>为什么不直接更新 state 呢 ?</h4><p>如果试图直接更新 state ，则不会重新渲染组件<br>要使用setState()方法来更新 state。它调度对组件state对象的更新。当state改变时，组件通过重新渲染来响应：</p>
+<h4 id="使用-React-Hooks-好处是啥？"><a href="#使用-React-Hooks-好处是啥？" class="headerlink" title="使用 React Hooks 好处是啥？"></a>使用 React Hooks 好处是啥？</h4><p>首先，Hooks 通常支持提取和重用跨多个组件通用的有状态逻辑，而无需承担高阶组件或渲染 props 的负担。Hooks 可以轻松地操作函数组件的状态，而不需要将它们转换为类组件。</p>
+<p>Hooks 在类中不起作用，通过使用它们，咱们可以完全避免使用生命周期方法，例如 componentDidMount、componentDidUpdate、componentWillUnmount。相反，使用像useEffect这样的内置钩子。</p>
+<h4 id="什么是-React-Hooks？"><a href="#什么是-React-Hooks？" class="headerlink" title="什么是 React Hooks？"></a>什么是 React Hooks？</h4><p>Hooks是 React 16.8 中的新添加内容。它们允许在不编写类的情况下使用state和其他 React 特性。使用 Hooks，可以从组件中提取有状态逻辑，这样就可以独立地测试和重用它。Hooks 允许咱们在不改变组件层次结构的情况下重用有状态逻辑，这样在许多组件之间或与社区共享 Hooks 变得很容易。</p>
+<h4 id="什么是-React-Context"><a href="#什么是-React-Context" class="headerlink" title="什么是 React Context?"></a>什么是 React Context?</h4><p>Context 通过组件树提供了一个传递数据的方法，从而避免了在每一个层级手动的传递 props 属性。</p>
+<h4 id="什么是纯函数？"><a href="#什么是纯函数？" class="headerlink" title="什么是纯函数？"></a>什么是纯函数？</h4><p>纯函数是不依赖并且不会在其作用域之外修改变量状态的函数。本质上，纯函数始终在给定相同参数的情况下返回相同结果。</p>
+<h4 id="你了解-Virtual-DOM-吗？解释一下它的工作原理？"><a href="#你了解-Virtual-DOM-吗？解释一下它的工作原理？" class="headerlink" title="你了解 Virtual DOM 吗？解释一下它的工作原理？"></a>你了解 Virtual DOM 吗？解释一下它的工作原理？</h4><p>Virtual DOM 是一个轻量级的 JavaScript 对象，它最初只是 real DOM 的副本。它是一个节点树，它将元素、它们的属性和内容作为对象及其属性。 React 的渲染函数从 React 组件中创建一个节点树。然后它响应数据模型中的变化来更新该树，该变化是由用户或系统完成的各种动作引起的。<br>Virtual DOM 工作过程有三个简单的步骤：<br>每当底层数据发生改变时，整个 UI 都将在 Virtual DOM 描述中重新渲染。<br>然后计算之前 DOM 表示与新表示的之间的差异。<br>完成计算后，将只用实际更改的内容更新 real DOM</p>
+<h4 id="为什么浏览器无法读取JSX？"><a href="#为什么浏览器无法读取JSX？" class="headerlink" title="为什么浏览器无法读取JSX？"></a>为什么浏览器无法读取JSX？</h4><p>浏览器只能处理 JavaScript 对象，而不能读取常规 JavaScript 对象中的 JSX。所以为了使浏览器能够读取 JSX，首先，需要用像 Babel 这样的 JSX 转换器将 JSX 文件转换为 JavaScript 对象，然后再将其传给浏览器。</p>
+<h4 id="与-ES5-相比，React-的-ES6-语法有何不同？"><a href="#与-ES5-相比，React-的-ES6-语法有何不同？" class="headerlink" title="与 ES5 相比，React 的 ES6 语法有何不同？"></a>与 ES5 相比，React 的 ES6 语法有何不同？</h4><h4 id="你理解“在React中，一切都是组件”这句话？"><a href="#你理解“在React中，一切都是组件”这句话？" class="headerlink" title="你理解“在React中，一切都是组件”这句话？"></a>你理解“在React中，一切都是组件”这句话？</h4><p>组件是 React 应用 UI 的构建块。这些组件将整个 UI 分成小的独立并可重用的部分。每个组件彼此独立，而不会影响 UI 的其余部分。</p>
+<h4 id="解释-React-中-render-的目的？"><a href="#解释-React-中-render-的目的？" class="headerlink" title="解释 React 中 render() 的目的？"></a>解释 React 中 render() 的目的？</h4><p>每个React组件强制要求必须有一个 render()。它返回一个 React 元素，是原生 DOM 组件的表示。如果需要渲染多个 HTML 元素，则必须将它们组合在一个封闭标记内，例如 <form>、<group>、<div> 等。此函数必须保持纯净，即必须每次调用时都返回相同的结果。</p>
+<h4 id="什么是-Props"><a href="#什么是-Props" class="headerlink" title="什么是 Props?"></a>什么是 Props?</h4><p>Props 是 React 中属性的简写。它们是只读组件，必须保持纯，即不可变。它们总是在整个应用中从父组件传递到子组件。子组件永远不能将 prop 送回父组件。这有助于维护单向数据流，通常用于呈现动态生成的数据。</p>
+<h4 id="React中的状态是什么？它是如何使用的？"><a href="#React中的状态是什么？它是如何使用的？" class="headerlink" title="React中的状态是什么？它是如何使用的？"></a>React中的状态是什么？它是如何使用的？</h4><p>状态是 React 组件的核心，是数据的来源，必须尽可能简单。基本上状态是确定组件呈现和行为的对象。与props 不同，它们是可变的，并创建动态和交互式组件。可以通过 this.state() 访问它们</p>
+<h4 id="如何更新组件的状态？"><a href="#如何更新组件的状态？" class="headerlink" title="如何更新组件的状态？"></a>如何更新组件的状态？</h4><p>可以用 this.setState()更新组件的状态。</p>
+<h4 id="详细解释-React-组件的生命周期方法。"><a href="#详细解释-React-组件的生命周期方法。" class="headerlink" title="详细解释 React 组件的生命周期方法。"></a>详细解释 React 组件的生命周期方法。</h4><p>componentWillMount**()** – 在渲染之前执行，在客户端和服务器端都会执行。<br>componentDidMount**()** – 仅在第一次渲染后在客户端执行。<br>componentWillReceiveProps**()** – 当从父类接收到 props 并且在调用另一个渲染器之前调用。<br>shouldComponentUpdate**()** – 根据特定条件返回 true 或 false。如果你希望更新组件，请返回true 否则返回 false。默认情况下，它返回 false。<br>componentWillUpdate**()** – 在 DOM 中进行渲染之前调用。<br>componentDidUpdate**()** – 在渲染发生后立即调用。<br>componentWillUnmount**()** – 从 DOM 卸载组件后调用。用于清理内存空间。</p>
+<h4 id="React中的合成事件是什么？"><a href="#React中的合成事件是什么？" class="headerlink" title="React中的合成事件是什么？"></a>React中的合成事件是什么？</h4><p>合成事件是围绕浏览器原生事件充当跨浏览器包装器的对象。它们将不同浏览器的行为合并为一个 API。这样做是为了确保事件在不同浏览器中显示一致的属性。</p>
+<h4 id="你对-React-的-refs-有什么了解？"><a href="#你对-React-的-refs-有什么了解？" class="headerlink" title="你对 React 的 refs 有什么了解？"></a>你对 React 的 refs 有什么了解？</h4><p>Refs 是 React 中引用的简写。它是一个有助于存储对特定的 React 元素或组件的引用的属性，它将由组件渲染配置函数返回。用于对 render() 返回的特定元素或组件的引用。当需要进行 DOM 测量或向组件添加方法时，它们会派上用场。</p>
+<h4 id="什么是高阶组件（HOC）？"><a href="#什么是高阶组件（HOC）？" class="headerlink" title="什么是高阶组件（HOC）？"></a>什么是高阶组件（HOC）？</h4><p>高阶组件是重用组件逻辑的高级方法，是一种源于 React 的组件模式。 HOC 是自定义组件，在它之内包含另一个组件。它们可以接受子组件提供的任何动态，但不会修改或复制其输入组件中的任何行为。你可以认为 HOC 是“纯（Pure）”组件。</p>
+<h4 id="你能用HOC做什么？"><a href="#你能用HOC做什么？" class="headerlink" title="你能用HOC做什么？"></a>你能用HOC做什么？</h4><p>代码重用，逻辑和引导抽象<br>渲染劫持<br>状态抽象和控制<br>Props 控制</p>
+<h4 id="什么是纯组件？"><a href="#什么是纯组件？" class="headerlink" title="什么是纯组件？"></a>什么是纯组件？</h4><p>纯（Pure） 组件是可以编写的最简单、最快的组件。它们可以替换任何只有 render() 的组件。这些组件增强了代码的简单性和应用的性能。</p>
+<h4 id="React-中-key-的重要性是什么？"><a href="#React-中-key-的重要性是什么？" class="headerlink" title="React 中 key 的重要性是什么？"></a>React 中 key 的重要性是什么？</h4><p>key 用于识别唯一的 Virtual DOM 元素及其驱动 UI 的相应数据。它们通过回收 DOM 中当前所有的元素来帮助 React 优化渲染。这些 key 必须是唯一的数字或字符串，React 只是重新排序元素而不是重新渲染它们。这可以提高应用程序的性能。</p>
+<h4 id="MVC框架的主要问题是什么？"><a href="#MVC框架的主要问题是什么？" class="headerlink" title="MVC框架的主要问题是什么？"></a>MVC框架的主要问题是什么？</h4><p>对 DOM 操作的代价非常高<br>程序运行缓慢且效率低下<br>内存浪费严重<br>由于循环依赖性，组件模型需要围绕 models 和 views 进行创建</p>
+<h4 id="解释一下-Flux？"><a href="#解释一下-Flux？" class="headerlink" title="解释一下 Flux？"></a>解释一下 Flux？</h4><p>Flux 是一种强制单向数据流的架构模式。它控制派生数据，并使用具有所有数据权限的中心 store 实现多个组件之间的通信。整个应用中的数据更新必须只能在此处进行。 Flux 为应用提供稳定性并减少运行时的错误。</p>
+<h4 id="什么是Redux？"><a href="#什么是Redux？" class="headerlink" title="什么是Redux？"></a>什么是Redux？</h4><p>Redux 是当今最热门的前端开发库之一。它是 JavaScript 程序的可预测状态容器，用于整个应用的状态管理。使用 Redux 开发的应用易于测试，可以在不同环境中运行，并显示一致的行为。</p>
+<h4 id="Redux遵循的三个原则是什么？"><a href="#Redux遵循的三个原则是什么？" class="headerlink" title="Redux遵循的三个原则是什么？"></a>Redux遵循的三个原则是什么？</h4><p>单一数据源<br>使用纯函数进行修改<br>状态是只读的</p>
+<h4 id="你对“单一事实来源”有什么理解？"><a href="#你对“单一事实来源”有什么理解？" class="headerlink" title="你对“单一事实来源”有什么理解？"></a>你对“单一事实来源”有什么理解？</h4><p>Redux 使用 “Store” 将程序的整个状态存储在同一个地方。因此所有组件的状态都存储在 Store 中，并且它们从 Store 本身接收更新。单一状态树可以更容易地跟踪随时间的变化，并调试或检查程序。</p>
+<h4 id="列出-Redux-的组件。"><a href="#列出-Redux-的组件。" class="headerlink" title="列出 Redux 的组件。"></a>列出 Redux 的组件。</h4><p>Action – 这是一个用来描述发生了什么事情的对象。<br>Reducer – 这是一个确定状态将如何变化的地方。<br>Store – 整个程序的状态/对象树保存在Store中。<br>View – 只显示 Store 提供的数据。</p>
+<h4 id="redux中间件？"><a href="#redux中间件？" class="headerlink" title="redux中间件？"></a>redux中间件？</h4><p>edux-logger：提供日志输出<br>redux-thunk：处理异步操作<br>redux-promise：处理异步操作，actionCreator的返回值是promise</p>
+<h4 id="如何在-Redux-中定义-Action？"><a href="#如何在-Redux-中定义-Action？" class="headerlink" title="如何在 Redux 中定义 Action？"></a>如何在 Redux 中定义 Action？</h4><p>React 中的 Action 必须具有 type 属性，该属性指示正在执行的 ACTION 的类型。必须将它们定义为字符串常量，并且还可以向其添加更多的属性。在 Redux 中，action 被名为 Action Creators 的函数所创建。以下是 Action 和Action Creator 的示例：</p>
+<h4 id="解释-Reducer-的作用？"><a href="#解释-Reducer-的作用？" class="headerlink" title="解释 Reducer 的作用？"></a>解释 Reducer 的作用？</h4><p>Reducers 是纯函数，它规定应用程序的状态怎样因响应 ACTION 而改变。Reducers 通过接受先前的状态和 action 来工作，然后它返回一个新的状态。它根据操作的类型确定需要执行哪种更新，然后返回新的值。如果不需要完成任务，它会返回原来的状态。</p>
+<h4 id="Store-在-Redux-中的意义是什么？"><a href="#Store-在-Redux-中的意义是什么？" class="headerlink" title="Store 在 Redux 中的意义是什么？"></a>Store 在 Redux 中的意义是什么？</h4><p>Store 是一个 JavaScript 对象，它可以保存程序的状态，并提供一些方法来访问状态、调度操作和注册侦听器。应用程序的整个状态/对象树保存在单一存储中。因此，Redux 非常简单且是可预测的。我们可以将中间件传递到 store 来处理数据，并记录改变存储状态的各种操作。所有操作都通过 reducer 返回一个新状态。</p>
+<h4 id="什么是React-路由？"><a href="#什么是React-路由？" class="headerlink" title="什么是React 路由？"></a>什么是React 路由？</h4><p>React 路由是一个构建在 React 之上的强大的路由库，它有助于向应用程序添加新的屏幕和流。这使 URL 与网页上显示的数据保持同步。它负责维护标准化的结构和行为，并用于开发单页 Web 应用。 React 路由有一个简单的API。</p>
+<h4 id="为什么React-Router-v4中使用-switch-关键字-？"><a href="#为什么React-Router-v4中使用-switch-关键字-？" class="headerlink" title="为什么React Router v4中使用 switch 关键字 ？"></a>为什么React Router v4中使用 switch 关键字 ？</h4><p>虽然 <div> ** 用于封装 Router 中的多个路由，当你想要仅显示要在多个定义的路线中呈现的单个路线时，可以使用 “switch” 关键字。使用时，<switch>** 标记会按顺序将已定义的 URL 与已定义的路由进行匹配。找到第一个匹配项后，它将渲染指定的路径。从而绕过其它路线。</p>
+<h4 id="为什么需要-React-中的路由？"><a href="#为什么需要-React-中的路由？" class="headerlink" title="为什么需要 React 中的路由？"></a>为什么需要 React 中的路由？</h4><p>Router 用于定义多个路由，当用户定义特定的 URL 时，如果此 URL 与 Router 内定义的任何 “路由” 的路径匹配，则用户将重定向到该特定路由。所以基本上我们需要在自己的应用中添加一个 Router 库，允许创建多个路由，每个路由都会向我们提供一个独特的视图</p>
+<h4 id="react性能优化的方案？"><a href="#react性能优化的方案？" class="headerlink" title="react性能优化的方案？"></a>react性能优化的方案？</h4><p>重写shouldComponentUpdate来避免不必要的dom操作。<br>使用 production 版本的react.js。<br>使用key来帮助React识别列表中所有子组件的最小变化。</p>
+<h4 id="介绍一下webpack？"><a href="#介绍一下webpack？" class="headerlink" title="介绍一下webpack？"></a>介绍一下webpack？</h4><p>webpack是一个前端模块化打包工具，主要由入口，出口，loader，plugins四个部分。前端的打包工具还有一个gulp，不过gulp侧重于前端开发的过程，而webpack侧重于模块，例如他会将css文件看作一个模块，通过css-loader将css打包成符合css的静态资源。</p>
+<h4 id="react生命周期中，最适合与服务端进行数据交互的是哪个函数？"><a href="#react生命周期中，最适合与服务端进行数据交互的是哪个函数？" class="headerlink" title="react生命周期中，最适合与服务端进行数据交互的是哪个函数？"></a>react生命周期中，最适合与服务端进行数据交互的是哪个函数？</h4><p>componentDidMount：在这个阶段，实例和dom已经挂载完成，可以进行相关的dom操作。</p>
+<h4 id="shouldComponentUpdate-是做什么的，（react-性能优化是哪个周期函数？）"><a href="#shouldComponentUpdate-是做什么的，（react-性能优化是哪个周期函数？）" class="headerlink" title="shouldComponentUpdate 是做什么的，（react 性能优化是哪个周期函数？）"></a>shouldComponentUpdate 是做什么的，（react 性能优化是哪个周期函数？）</h4><p>询问组件是否需要更新的一个钩子函数，判断数据是否需要重新渲染，返回一个布尔值。默认的返回值是true，需要重新render()。若如果返回值是false则不触发渲染,利用这个生命周期函数可以强制关闭不需要更新的子组件来提升渲染性能。</p>
+<p>这个方法用来判断是否需要调用 render 方法重新描绘 dom。<br>因为 dom 的描绘非常消耗性能，如果我们能在 shouldComponentUpdate 方法中能够写出更优化的 dom diff 算法，可以极大的提高性能。</p>
+<h4 id="指出-组件-生命周期方法的不同？"><a href="#指出-组件-生命周期方法的不同？" class="headerlink" title="指出(组件)生命周期方法的不同？"></a>指出(组件)生命周期方法的不同？</h4><p>componentWillMount – 多用于根组件中的应用程序配置<br>componentDidMount – 在这可以完成所有没有 DOM 就不能做的所有配置，并开始获取所有你需要的数据；如果需要设置事件监听，也可以在这完成<br>componentWillReceiveProps – 这个周期函数作用于特定的 prop 改变导致的 state 转换<br>shouldComponentUpdate – 如果你担心组件过度渲染，shouldComponentUpdate 是一个改善性能的地方，因为如果组件接收了新的 prop， 它可以阻止(组件)重新渲染。shouldComponentUpdate 应该返回一个布尔值来决定组件是否要重新渲染<br>componentWillUpdate – 很少使用。它可以用于代替组件的 componentWillReceiveProps 和 shouldComponentUpdate(但不能访问之前的 props)<br>componentDidUpdate – 常用于更新 DOM，响应 prop 或 state 的改变<br>componentWillUnmount – 在这你可以取消网络请求，或者移除所有与组件相关的事件监听器</p>
+<h4 id="调用-setState-之后发生了什么？"><a href="#调用-setState-之后发生了什么？" class="headerlink" title="调用 setState 之后发生了什么？"></a>调用 setState 之后发生了什么？</h4><p>代码中调用 setState 函数之后，React 会将传入的参数对象与组件当前的状态合并，然后触发所谓的调和过程（Reconciliation）。</p>
+<p>经过调和过程，React 会以相对高效的方式根据新的状态构建 React 元素树并且着手重新渲染整个 UI 界面；<br>在 React 得到元素树之后，React 会自动计算出新的树与老树的节点差异，然后根据差异对界面进行最小化重渲染；<br>在差异计算算法中，React 能够相对精确地知道哪些位置发生了改变以及应该如何改变，这就保证了按需更新，而不是全部重新渲染。</p>
+<h4 id="react-diff-原理（常考，大厂必考）"><a href="#react-diff-原理（常考，大厂必考）" class="headerlink" title="react diff 原理（常考，大厂必考）"></a>react diff 原理（常考，大厂必考）</h4><p>把树形结构按照层级分解，只比较同级元素。<br>列表结构的每个单元添加唯一的 key 属性，方便比较。<br>React 只会匹配相同 class 的 component（这里面的 class 指的是组件的名字）<br>合并操作，调用 component 的 setState 方法的时候, React 将其标记为 dirty.到每一个事件循环结束, React 检查所有标记 dirty 的 component 重新绘制.<br>选择性子树渲染。开发人员可以重写 shouldComponentUpdate 提高 diff 的性能。</p>
+<h4 id="为什么建议传递给-setState-的参数是一个-callback-而不是一个对象？"><a href="#为什么建议传递给-setState-的参数是一个-callback-而不是一个对象？" class="headerlink" title="为什么建议传递给 setState 的参数是一个 callback 而不是一个对象？"></a>为什么建议传递给 setState 的参数是一个 callback 而不是一个对象？</h4><p>因为 this.props 和 this.state 的更新可能是异步的，不能依赖它们的值去计算下一个 state</p>
+<h4 id="除了在构造函数中绑定-this，还有其它方式吗？"><a href="#除了在构造函数中绑定-this，还有其它方式吗？" class="headerlink" title="除了在构造函数中绑定 this，还有其它方式吗？"></a>除了在构造函数中绑定 this，还有其它方式吗？</h4><p>你可以使用属性初始值设定项(property initializers)来正确绑定回调，create-react-app 也是默认支持的。<br>在回调中你可以使用箭头函数，但问题是每次组件渲染时都会创建一个新的回调。</p>
+<h4 id="setState第二个参数的作用"><a href="#setState第二个参数的作用" class="headerlink" title="setState第二个参数的作用?"></a>setState第二个参数的作用?</h4><p>因为setState是一个异步的过程，所以说执行完setState之后不能立刻更改state里面的值。如果需要对state数据更改监听，setState提供第二个参数，就是用来监听state里面数据的更改，当数据更改完成，调用回调函数。</p>
+<h4 id="在构造函数中-调用-super-props-的目的是什么"><a href="#在构造函数中-调用-super-props-的目的是什么" class="headerlink" title="(在构造函数中)调用 super(props) 的目的是什么?"></a>(在构造函数中)调用 super(props) 的目的是什么?</h4><p>在 super() 被调用之前，子类是不能使用 this 的，在 ES2015 中，子类必须在 constructor 中调用 super()。<br>传递 props 给 super() 的原因则是便于(在子类中)能在 constructor 访问 this.props。</p>
+<h4 id="在-React-当中-Element-和-Component-有何区别？"><a href="#在-React-当中-Element-和-Component-有何区别？" class="headerlink" title="在 React 当中 Element 和 Component 有何区别？"></a>在 React 当中 Element 和 Component 有何区别？</h4><p>React Element 是描述屏幕上所见内容的数据结构，是对于 UI 的对象表述。<br>典型的 React Element 就是利用 JSX 构建的声明式代码片然后被转化为 createElement 的调用组合。</p>
+<p>React Component 是一个函数或一个类，可以接收参数输入，并且返回某个 React Element</p>
+<h4 id="组件的-状态-state-和属性-props-之间有何不同"><a href="#组件的-状态-state-和属性-props-之间有何不同" class="headerlink" title="(组件的)状态(state)和属性(props)之间有何不同?"></a>(组件的)状态(state)和属性(props)之间有何不同?</h4><p>State 是一种数据结构，用于组件挂载时所需数据的默认值。State 可能会随着时间的推移而发生突变，但多数时候是作为用户事件行为的结果。<br>Props(properties 的简写)则是组件的配置。props 由父组件传递给子组件，并且就子组件而言，props 是不可变的(immutable)。组件不能改变自身的 props，但是可以把其子组件的 props 放在一起(统一管理)。Props 也不仅仅是数据–回调函数也可以通过 props 传递。</p>
+<h4 id="受控组件和非受控组件区别"><a href="#受控组件和非受控组件区别" class="headerlink" title="受控组件和非受控组件区别?"></a>受控组件和非受控组件区别?</h4><p>受控组件：<br>1.没有维持自己的状态<br>2.数据由父组件控制<br>3.通过 props 获取当前值，然后通过回调通知更改</p>
+<p>非受控组件：<br>1、保持着自己的状态<br>2、数据由 DOM 控制<br>3、Refs 用于获取其当前值</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2021/02/22/vue%E3%80%81react/" title="vue、react面试题" target="_blank" rel="external">http://example.com/2021/02/22/vue%E3%80%81react/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">昵称</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/06/09/js%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" title="js严格模式"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/12/26/Hook/" title="hook中的API"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
